@@ -1,5 +1,8 @@
-var path = require('path')
-var webpack = require('webpack')
+var path = require('path');
+var webpack = require('webpack');
+
+const precss = require('precss');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   entry: './src/main.js',
@@ -20,9 +23,20 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          'vue-style-loader',
-          'css-loader',
-          'sass-loader'
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins() {
+                return [
+                  precss,
+                  autoprefixer,
+                ];
+              },
+            },
+          },
+          { loader: 'sass-loader' },
         ],
       },
       {
