@@ -4,3 +4,20 @@
 // Dokumentacja customizowania bootstrapa:
 // https://travishorn.com/customizing-bootstrap-styles-step-by-step-5fdfd60d1116
 
+
+$primary:       $orange2;
+$secondary:     $orange5;
+// $success:       $green;
+$info:          cornflowerblue;
+// $warning:       $yellow;
+// $danger:        $red;
+// $light:         $gray-100;
+// $dark:          $gray-800;
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1240px
+);
+

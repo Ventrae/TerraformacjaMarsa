@@ -1,0 +1,132 @@
+
+.card {
+
+  border: 1px solid dimgray;
+  margin: 5px;
+  cursor: pointer;
+  z-index: 1;
+  transition-duration: .15s;
+  border-radius: 12px;
+
+  &:hover {
+    transform: scale(1.3);
+    z-index: 2;
+  }
+
+  &--price {
+    display: flex;
+    background: lightgray;
+    padding: 5px;
+
+    &-cash {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background: goldenrod;
+
+      font-family: 'Turret Road', cursive;
+      font-weight: bold;
+      width: 30%;
+    }
+
+    &-requirements {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background: $orange1;
+      width: 40%;
+    }
+
+    &-color {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background: forestgreen;
+      color: lawngreen;
+      width: 30%;
+      padding: 5px 20px;
+    }
+
+  }
+
+  h5 {
+    text-shadow: 2px 2px #222222;
+
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+
+  &-img-top {
+    min-height: 180px;
+    border-top: 1px solid dimgray;
+    border-bottom: 1px solid dimgray;
+  }
+
+  &-body {
+
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    padding: 0.65rem;
+
+    &--text {
+      display: flex;
+      min-height: 120px;
+
+      text-align: left;
+      padding: 10px;
+      font-size: 14px;
+
+      border: 1px solid dimgray;
+      background: floralwhite;
+    }
+
+  }
+
+  &--bg-yellow h5 {
+    background-image: linear-gradient(to bottom, rgba(247, 202, 24, 0.7), rgba(245, 215, 110, 0.7)),
+    url("/src/assets/img/metal.jpg");
+  }
+  &--bg-red h5 {
+    background-image: linear-gradient(to bottom, rgba(242, 38, 19, 0.7), rgba(236, 100, 75, 0.7)),
+    url("/src/assets/img/metal.jpg");
+  }
+  &--bg-blue h5 {
+    background-image: linear-gradient(to bottom, rgba(34, 167, 240, 0.7), rgba(37, 116, 169, 0.7)),
+    url("/src/assets/img/metal.jpg");
+  }
+  &--bg-green h5 {
+    background-image: linear-gradient(to bottom, rgba(38, 166, 91, 0.7), rgba(144, 198, 149, 0.7)),
+    url("/src/assets/img/metal.jpg");
+  }
+}
+
+.card--bg-red {
+  .card-body {
+    background-image: linear-gradient(to bottom, rgba(242, 38, 19, 0.7), rgba(236, 100, 75, 0.7)),
+    url("/src/assets/img/metal.jpg");
+  }
+}
+
+.card--bg-yellow {
+  .card-body {
+    background-image: linear-gradient(to bottom, rgba(247, 202, 24, 0.7), rgba(245, 215, 110, 0.7)),
+    url("/src/assets/img/metal.jpg");
+  }
+}
+
+.card--bg-green {
+  .card-body {
+    background-image: linear-gradient(to bottom, rgba(38, 166, 91, 0.7), rgba(144, 198, 149, 0.7)),
+    url("/src/assets/img/metal.jpg");
+  }
+}
+
+.card--bg-blue {
+  .card-body {
+    background-image: linear-gradient(to bottom, rgba(34, 167, 240, 0.7), rgba(37, 116, 169, 0.7)),
+    url("/src/assets/img/metal.jpg");
+  }
+}

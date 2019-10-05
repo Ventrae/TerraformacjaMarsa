@@ -1,7 +1,7 @@
 <template>
   <footer class="footer fixed-bottom navbar-dark bg-dark">
     <div class="container">
-      <span class="text-muted">Terraformacja Marsa | Autorstwa: Filip Dobrzyniewicz</span>
+      <span class="text-warning">Terraformacja Marsa | Autorstwa: Filip Dobrzyniewicz</span>
     </div>
   </footer>
 </template>
