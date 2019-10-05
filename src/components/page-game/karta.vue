@@ -25,8 +25,7 @@
         },
       methods: {
         executeCard(){
-          console.log(this.$slots.title);
-          // alert(this.$slots.title.elm.innerText);
+          alert(this.$slots.title[0].elm.textContent);
         }
       },
       data() {
