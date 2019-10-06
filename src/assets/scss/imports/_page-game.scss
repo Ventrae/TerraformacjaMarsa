@@ -16,37 +16,46 @@
   &--price {
     display: flex;
     background: lightgray;
-    padding: 5px;
+    height: 40px;
 
-    &-cash {
+    div {
+      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
+    }
 
+    &-cash {
       background: goldenrod;
-
       font-family: 'Turret Road', cursive;
       font-weight: bold;
-      width: 30%;
+      width: 20%;
     }
 
     &-requirements {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      background: lightgray;
+      width: 60%;
 
-      background: $orange1;
-      width: 40%;
+      div {
+        width: 32%;
+      }
+
+      &--temperature {
+        color: #d62f32;
+      }
+
+      &--oxygen {
+        color: darkorange;
+      }
+
+      &--water {
+        color: #1c39a8;
+      }
+
     }
 
-    &-color {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      background: forestgreen;
-      color: lawngreen;
-      width: 30%;
+    &-symbol {
+      width: 20%;
       padding: 5px 20px;
     }
 
@@ -61,7 +70,7 @@
 
   &-img-top {
     min-height: 180px;
-    border-top: 1px solid dimgray;
+    border-radius: 0;
     border-bottom: 1px solid dimgray;
   }
 

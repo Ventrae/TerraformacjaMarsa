@@ -23,16 +23,16 @@
               required: true
             }
         },
-      methods: {
-        executeCard(){
-          alert(this.$slots.title[0].elm.textContent);
+        methods: {
+          executeCard(){
+            alert(this.$slots.title[0].elm.textContent);
+          }
+        },
+        data() {
+          return {
+            bgtype: "card--bg-" + this.type
+          }
         }
-      },
-      data() {
-        return {
-          bgtype: "card--bg-" + this.type
-        }
-      }
     }
 </script>
 
