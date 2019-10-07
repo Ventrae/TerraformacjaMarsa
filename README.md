@@ -30,7 +30,7 @@ Mój projekt "Terraformacja Marsa", jest implementacją gry planszowej o tym sam
  - implementacja planszy
   **[Not implemented] [Planned in the future]**
 
-### Rozgrywka:
+### Gameplay:
 - gracz posiada 6 zasobów: pieniądze, żelazlo, tytan, zieleń, energia, ciepło
 - gracz posiada swój współczynnik terraformacji
 - ...

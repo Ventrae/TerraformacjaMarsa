@@ -1,0 +1,15 @@
+while(tlen < 16 && temperatura < 14 && woda < 8){
+     let iter = 0;
+     dobieranieKart(); // gameplay.preRound();
+     for(let gracz of gracze[]){
+         iter++;
+         podajHaslo(
+             'supertajnehaslo',
+             render(<interfejs :gracz="gracz" index="iter" />);
+         )
+     }
+     naliczanieZasobów(); // gameplay.postRound();
+ }
+
+// korporacje - https://boardgamegeek.com/article/27696493#27696493
+// typescript support to vue - https://vuejs.org/v2/guide/typescript.html
