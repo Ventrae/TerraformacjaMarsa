@@ -1,7 +1,7 @@
-@mixin linear-gradient($color1, $color2){
+@mixin linear-gradient($color1, $color2) {
   background: url($image) $color1; /* For browsers that do not support gradients */
-  background: url($image) -webkit-linear-gradient(90deg, $color1 , $color2); /* For Safari 5.1 to 6.0 */
+  background: url($image) -webkit-linear-gradient(90deg, $color1, $color2); /* For Safari 5.1 to 6.0 */
   background: url($image) -o-linear-gradient(90deg, $color1, $color2); /* For Opera 11.1 to 12.0 */
   background: url($image) -moz-linear-gradient(90deg, $color1, $color2); /* For Firefox 3.6 to 15 */
-  background: url($image) linear-gradient(0deg, $color1 , $color2); /* Standard syntax */
+  background: url($image) linear-gradient(0deg, $color1, $color2); /* Standard syntax */
 }

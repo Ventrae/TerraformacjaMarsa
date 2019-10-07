@@ -33,7 +33,8 @@
     }
 
     &-requirements {
-      background: lightgray;
+      background-image: linear-gradient(to bottom, rgba(180, 180, 180, 0.85), rgba(180, 180, 180, 0.85)),
+      url("/src/assets/img/metal.jpg");
       width: 60%;
 
       div {
@@ -98,14 +99,17 @@
     background-image: linear-gradient(to bottom, rgba(247, 202, 24, 0.7), rgba(245, 215, 110, 0.7)),
     url("/src/assets/img/metal.jpg");
   }
+
   &--bg-red h5 {
     background-image: linear-gradient(to bottom, rgba(242, 38, 19, 0.7), rgba(236, 100, 75, 0.7)),
     url("/src/assets/img/metal.jpg");
   }
+
   &--bg-blue h5 {
     background-image: linear-gradient(to bottom, rgba(34, 167, 240, 0.7), rgba(37, 116, 169, 0.7)),
     url("/src/assets/img/metal.jpg");
   }
+
   &--bg-green h5 {
     background-image: linear-gradient(to bottom, rgba(38, 166, 91, 0.7), rgba(144, 198, 149, 0.7)),
     url("/src/assets/img/metal.jpg");

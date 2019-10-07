@@ -1,9 +1,9 @@
 <template>
-  <div id="app" class="container">
-    <router-view name="header" />
+  <div class="container" id="app">
+    <router-view name="header"/>
     <div class="wrapper">
-      <transition name="fade" mode="out-in">
-        <router-view name="default" />
+      <transition mode="out-in" name="fade">
+        <router-view name="default"/>
       </transition>
     </div>
     <router-view name="footer"/>
@@ -11,9 +11,7 @@
 </template>
 
 <script>
-    export default {
-
-    };
+    export default {};
 </script>
 
 <style lang="scss">
@@ -21,14 +19,17 @@
     transition: opacity .2s linear;
     opacity: 0;
   }
+
   .fade-leave {
     opacity: 1;
   }
+
   .fade-enter-active {
     transition: opacity .4s ease-in-out;
     opacity: 1;
   }
-  .fade-enter{
+
+  .fade-enter {
     opacity: 0;
   }
 </style>

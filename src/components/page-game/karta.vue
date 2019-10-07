@@ -1,13 +1,20 @@
 <template>
-  <div class="card" :class="bgtype" style="width: 18rem;" @click="executeCard()">
+  <div :class="bgtype" @click="executeCard()" class="card" style="width: 18rem;">
 
-    <slot name="title"></slot>
-    <slot name="price"></slot>
-    <slot name="image"></slot>
+    <h5>{{ this.title }}</h5>
+
+    <div class="card--price">
+      <card-cost>{{ this.price }}</card-cost>
+      <card-requirement :oxygen="this.requirements.oxygen" :temperature="this.requirements.temperature"
+                        :water="this.requirements.water"></card-requirement>
+      <card-symbol :symbol="this.symbol"></card-symbol>
+    </div>
+
+    <img :alt="this.title" :src="this.image" class="card-img-top"/>
 
     <div class="card-body text-center">
       <div class="card-body--text">
-        <slot name="text"></slot>
+        <p>{{ this.text }}</p>
       </div>
     </div>
 
@@ -15,23 +22,68 @@
 </template>
 
 <script>
+    import CardSymbol from "./cardSymbol";
+    import CardCost from "./cardCost";
+    import CardRequirement from "./cardRequirement";
+    import {cardBehavior} from "../mixins/cardBehavior";
+
     export default {
         name: "karta",
+        mixins: [cardBehavior],
+        components: {
+            CardRequirement,
+            CardCost,
+            CardSymbol,
+        },
         props: {
             type: {
-              type: String,
-              required: true
+                type: String,
+                required: true
+            },
+            title: {
+                type: String,
+                required: true
+            },
+            price: {
+                type: Number,
+                required: true
+            },
+            symbol: {
+                type: String,
+                required: true
+            },
+            requirements: {
+                type: Object,
+                required: false,
+                default: {
+                    water: null,
+                    temperature: null,
+                    oxygen: null
+                }
+            },
+            text: {
+                type: String,
+                required: true
+            },
+            behavior: {
+                type: Object,
+                required: true
             }
         },
         methods: {
-          executeCard(){
-            alert(this.$slots.title[0].elm.textContent);
-          }
+            executeCard() {
+                alert(this.title);
+            }
         },
         data() {
-          return {
-            bgtype: "card--bg-" + this.type
-          }
+            return {
+                bgtype: "card--bg-" + this.type
+            }
+        },
+        computed: {
+            image() {
+                return "/src/assets/img/cards/" + this.type + "/" + this.title + ".jpg";
+            }
         }
     }
 </script>

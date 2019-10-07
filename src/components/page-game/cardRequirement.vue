@@ -14,24 +14,24 @@
 
 <script>
     export default {
-      name: "cardRequirement",
-      props: {
-        water: {
-          type: Number,
-          required: false,
-          default: null
-        },
-        temperature: {
-          type: Number,
-          required: false,
-          default: null
-        },
-        oxygen: {
-          type: Number,
-          required: false,
-          default: null
+        name: "cardRequirement",
+        props: {
+            water: {
+                type: Number,
+                required: false,
+                default: null
+            },
+            temperature: {
+                type: Number,
+                required: false,
+                default: null
+            },
+            oxygen: {
+                type: Number,
+                required: false,
+                default: null
+            }
         }
-      }
     }
 </script>
 
