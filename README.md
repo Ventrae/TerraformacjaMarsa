@@ -4,6 +4,7 @@ Mój projekt "Terraformacja Marsa", jest implementacją gry planszowej o tym sam
 
 ### Technologie użyte w projekcie:
  - Vue.js (with VueCLI, Vue-Router)
+ - TypeScript
  - SCSS
  - Bootstrap 4
  - webpack
@@ -15,20 +16,20 @@ Mój projekt "Terraformacja Marsa", jest implementacją gry planszowej o tym sam
   **[Not implemented]**
  - możliwość wykonywania akcji podstawowych w swojej turze (np. postawienine lasu)
   **[Not implemented]**
- - możliwość wykonywania akcji z kart ("custom") w swojej turze (np. +2 jednostki złota/turę)
+ - możliwość zagrywania kart w swojej turze (akcje "customowe" np. +1 jednostka zieleni/turę & +1 poziom tlenu na planecie)
   **[Not implemented]**
  - automatyczne naliczanie zasobów na początku tury (zasób = zasób + przychód zasobu)
   **[Not implemented]**
  - zliczanie punktów zwycięstwa każdego z graczy podczas rozgrywki
   **[Not implemented]**
- - monitorowanie aktualnego stanu planety (poziom tleny, temperatura, oceany, zalesienie itp.) i kończenie gry w przypadku osiągnięcia odpowiednich progów
+ - monitorowanie aktualnego stanu planety (poziom tlenu, temperatura, oceany, zalesienie itp.) i kończenie gry w przypadku osiągnięcia odpowiednich progów
   **[Not implemented]**
  - system "nagród z gry"
-  **[Not implemented] [Planned in the future]**
+  **[Not implemented] [Planned for further development]**
  - system "tytuów z gry"
-  **[Not implemented] [Planned in the future]**
+  **[Not implemented] [Planned for further development]**
  - implementacja planszy
-  **[Not implemented] [Planned in the future]**
+  **[Not implemented] [Planned for further development]**
 
 ### Gameplay:
 - gracz posiada 6 zasobów: pieniądze, żelazlo, tytan, zieleń, energia, ciepło

@@ -1,18 +1,22 @@
 <template>
-  <div class="page">
+  <div class="page" v-if="gameGoing">
 
     <terraformation-bar
         :gameInstance="gameInstance"
+        :active="gameInstance.activePlayer"
     ></terraformation-bar>
 
     <player-interface
      v-for="player in gameInstance.players"
      :player="player"
+     :active="gameInstance.activePlayer"
+     @finishedTurn="nextTurn()"
+     v-if="player === gameInstance.players[gameInstance.activePlayer]"
     >
     </player-interface>
 
-
     <div class="row justify-content-around">
+
 
 
 
@@ -39,6 +43,7 @@
         data() {
             return {
                 gameInstance: {
+                    activePlayer: 0,
                     players: [
                         {
                             name: "Filip",
@@ -46,25 +51,52 @@
                                 terraformation: 11,
                                 victory: 7
                             },
-                            cards: json
+                            password: "abcde"
                         },
                         {
                             name: "Radek",
                             points: {
                                 terraformation: 12,
                                 victory: 2
-                            }
+                            },
+                            password: "edcba"
                         },
                         {
                             name: "Szymon",
                             points: {
                                 terraformation: 4,
                                 victory: 0
-                            }
+                            },
+                            password: null
+                        },
+                        {
+                            name: "Wercia",
+                            points: {
+                                terraformation: 4,
+                                victory: 0
+                            },
+                            password: null
                         }
                     ]
                 }
                 //gameInstance: gameplay(4)
+            }
+        },
+        computed: {
+            gameGoing(){
+                /*if(this.gameplay.generals.water < 8 &&
+                   this.gameplay.generals.temperature < 16 &&
+                   this.gameplay.generals.oxygen < 16){
+                    return true;
+                }
+                else return true;*/
+                return true;
+            }
+        },
+        methods: {
+            nextTurn(){
+                if(this.gameInstance.activePlayer === (this.gameInstance.players.length-1)) this.gameInstance.activePlayer = 0;
+                else ++this.gameInstance.activePlayer;
             }
         }
     }
