@@ -143,3 +143,95 @@
     url("/src/assets/img/metal.jpg");
   }
 }
+
+.terraformation-bar {
+
+    height: 56px;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+
+    background-image: linear-gradient(to bottom, rgba(225, 225, 225, 0.7), rgba(225, 225, 225, 0.7)),
+    url("/src/assets/img/metal.jpg");
+    border-top: 3px solid #333333;
+    border-bottom: 3px solid #333333;
+    border-radius: 4px;
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.4);
+
+    &-players {
+
+        width: 60%;
+        height: 100%;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+
+        &-cell {
+
+            height: 100%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-color: antiquewhite;
+            padding: 5px 20px;
+            border-left: 4px solid orangered;
+            border-right: 4px solid orangered;
+            font-size: 20px;
+
+        }
+
+        &-cell:not(:last-child) {
+            border-right: 0;
+        }
+
+        .active-turn {
+            color: orangered;
+        }
+    }
+
+    &-generals {
+
+        width: 40%;
+        height: 100%;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+
+        &-cell {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            width: 30%;
+            background-color: antiquewhite;
+            padding: 5px 10px;
+            border-left: 4px solid orangered;
+            border-right: 4px solid orangered;
+            font-size: 24px;
+
+        }
+
+        .generals-cell-water {
+            color: #1c39a8;
+            border-right: 0;
+        }
+        .generals-cell-temperature {
+            color: #d62f32;
+            border-right: 0;
+        }
+        .generals-cell-oxygen {
+            color: darkorange;
+        }
+    }
+}

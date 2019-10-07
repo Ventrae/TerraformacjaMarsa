@@ -1,18 +1,29 @@
 import Resource from "./resources";
+import Card from "./card";
 
 interface IPlayer {
+    name: String,
+    password: String | null,
     resources: Resource
-    income: Resource,
+    income: Resource
     points: Object
+    cards: Array<Card>
+    aquiredSymbols: Array<Object>
 }
 
 export default class Player implements IPlayer {
 
+    name: String;
+    password: String | null;
+
     resources = new Resource(0,0,0,0,0,0);
     income = new Resource(0,0,0,0,0,0);
     points = {};
+    cards: Array<Card> = [];
+    aquiredSymbols: Array<Object> = [];
 
     constructor(corporation:String) {
+
         switch (corporation) {
             case "Credicor":
                 // "Cash" - declaration example
@@ -61,9 +72,10 @@ export default class Player implements IPlayer {
         this.points = {
             terraformation: 0,
             victory: 0
-        }
+        };
+
+        this.cards = [];
 
     }
-
 
 }

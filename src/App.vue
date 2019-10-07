@@ -1,11 +1,15 @@
 <template>
   <div class="container" id="app">
     <router-view name="header"/>
+
     <div class="wrapper">
-      <transition mode="out-in" name="fade">
-        <router-view name="default"/>
-      </transition>
+        <keep-alive>
+            <transition mode="out-in" name="fade">
+                <router-view name="default"/>
+            </transition>
+        </keep-alive>
     </div>
+
     <router-view name="footer"/>
   </div>
 </template>

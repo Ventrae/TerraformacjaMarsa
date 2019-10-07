@@ -25,11 +25,9 @@
     import CardSymbol from "./cardSymbol";
     import CardCost from "./cardCost";
     import CardRequirement from "./cardRequirement";
-    import {cardBehavior} from "../mixins/cardBehavior";
 
     export default {
         name: "karta",
-        mixins: [cardBehavior],
         components: {
             CardRequirement,
             CardCost,
@@ -63,10 +61,6 @@
             },
             text: {
                 type: String,
-                required: true
-            },
-            behavior: {
-                type: Object,
                 required: true
             }
         },

@@ -1,0 +1,50 @@
+[
+    {
+        "type": "blue",
+        "title": "Eksploracja Fobosa",
+        "price": 12,
+        "symbol": "science",
+        "requirements": {
+            "water": null,
+            "temperature": null,
+            "oxygen": null
+        },
+        "text": "Eksplorujecie Fobosa"
+    },
+    {
+        "type": "red",
+        "title": "Deszcz meteorów",
+        "price": 6,
+        "symbol": "iron",
+        "requirements": {
+            "water": null,
+            "temperature": -12,
+            "oxygen": null
+        },
+        "text": "Z powodu słabej atmosfery, deszcz meteorów zasypuje placówki twoich sąssiadów! Wszyscy inni gracze -1 do produckji zieleni, -1 do produkcji gotówki"
+    },
+    {
+        "type": "yellow",
+        "title": "Kwatery mieszkalne",
+        "price": 14,
+        "symbol": "earth",
+        "requirements": {
+            "water": null,
+            "temperature": -6,
+            "oxygen": 8
+        },
+        "text": "Wybudowaliśmy nowe kwatery mieszkalne - możemy więc sprowadzić więcej terraformatorów! Produkcja gotówki +2"
+    },
+    {
+        "type": "green",
+        "title": "Plantacja",
+        "price": 18,
+        "symbol": "leaf",
+        "requirements": {
+            "water": 4,
+            "temperature": -10,
+            "oxygen": null
+        },
+        "text": "Nareszcie! Udało się wychodować rośliny na marsie! Co prawda w zamkniętym pomieszczeniu ale to zawsze jakiś początek! +2 produkcja zieleni"
+    }
+]
