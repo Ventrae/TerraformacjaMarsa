@@ -1,12 +1,13 @@
 import Resource from "./resources";
 import Card from "./card";
+import Points from "./points";
 
 interface IPlayer {
     name: String,
     password: String | null,
     resources: Resource
     income: Resource
-    points: Object
+    points: Points
     cards: Array<Card>
     aquiredSymbols: Array<Object>
 }
@@ -18,11 +19,14 @@ export default class Player implements IPlayer {
 
     resources = new Resource(0,0,0,0,0,0);
     income = new Resource(0,0,0,0,0,0);
-    points = {};
+    points = new Points(0,0);
     cards: Array<Card> = [];
     aquiredSymbols: Array<Object> = [];
 
-    constructor(corporation:String) {
+    constructor(corporation:String, name: String) {
+
+        this.name = name;
+        this.password = null;
 
         switch (corporation) {
             case "Credicor":
@@ -69,10 +73,7 @@ export default class Player implements IPlayer {
             break;
         }
 
-        this.points = {
-            terraformation: 0,
-            victory: 0
-        };
+        this.points = new Points(0,0);
 
         this.cards = [];
 

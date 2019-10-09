@@ -1,21 +1,19 @@
 import Player from "./player";
 import Card from "./card";
+import Indicators from "./indicators";
 
 // import AllCards from './AllCards.json';
 
-export class GamePlay {
+export default class GamePlay {
 
      cards: Array<Card> = [];
      players: Array<Player> = [];
-     general: {
-         water: number,
-         temperature: number,
-         oxygen: number
-     };
+     activePlayer: number = 0;
+     indicators: Indicators;
 
      constructor(players:Array<Player>) {
          this.players = players;
-         this.general = {
+         this.indicators = {
              water: 0,
              temperature: -30,
              oxygen: 0
@@ -37,16 +35,16 @@ export class GamePlay {
      increaseGenerals(general:string, levels?:number):void{
          switch (general) {
              case "water":
-                 if(levels != undefined) this.general.water += levels;
-                 else this.general.water += 1;
+                 if(levels != undefined) this.indicators.water += levels;
+                 else this.indicators.water += 1;
              break;
              case "temperature":
-                 if(levels != undefined) this.general.temperature += levels*2;
-                 else this.general.temperature += 2;
+                 if(levels != undefined) this.indicators.temperature += levels*2;
+                 else this.indicators.temperature += 2;
              break;
              case "oxygen":
-                 if(levels != undefined) this.general.oxygen += levels;
-                 else this.general.oxygen += 1;
+                 if(levels != undefined) this.indicators.oxygen += levels;
+                 else this.indicators.oxygen += 1;
              break;
          }
      }
@@ -56,4 +54,4 @@ export class GamePlay {
          return this.cards[Math.floor(Math.random() * (x + 1))];
      }
 
-}
+};

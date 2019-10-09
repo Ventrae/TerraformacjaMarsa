@@ -1,18 +1,12 @@
 import Resource from "./resources";
+import Indicators from "./indicators";
+import Points from "./points";
 
 export default abstract class CardBehavior {
     resources: Resource;
     income: Resource;
-    points: {
-        terraformation: number,
-        victory: number,
-    };
-    general: {
-        water: number,
-        temperature: number,
-        oxygen: number
-    };
-
+    points: Points;
+    indicators: Indicators;
 
     constructor(
         resources?: Resource,
@@ -24,21 +18,23 @@ export default abstract class CardBehavior {
         oxygen?: number
     )
     {
-        if(this.resources != undefined) this.resources = resources;
+
+        if(resources != undefined) this.resources = resources;
         else this.resources = null;
-        if(this.income != undefined) this.income = income;
+        if(income != undefined) this.income = income;
         else this.income = null;
 
-        if(this.points.terraformation != undefined) this.points.terraformation = terraformation;
+        if(terraformation != undefined) this.points.terraformation = terraformation;
         else this.points.terraformation = 0;
-        if(this.points.victory != undefined) this.points.victory = victory;
+        if(victory != undefined) this.points.victory = victory;
         else this.points.victory = 0;
 
-        if(this.general.water != undefined) this.general.water = water;
-        else this.general.water = 0;
-        if(this.general.temperature != undefined) this.general.temperature = temperature;
-        else this.general.temperature = 0;
-        if(this.general.oxygen != undefined) this.general.oxygen = oxygen;
-        else this.general.oxygen = null;
+        if(water != undefined) this.indicators.water = water;
+        else this.indicators.water = 0;
+        if(temperature != undefined) this.indicators.temperature = temperature;
+        else this.indicators.temperature = 0;
+        if(oxygen != undefined) this.indicators.oxygen = oxygen;
+        else this.indicators.oxygen = null;
+
     }
 }
