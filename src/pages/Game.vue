@@ -31,7 +31,8 @@
     import PlayerInterface from "../components/page-game/playerInterface";
     // import gameplay from "../components/mixins/gameplay";
 
-    import json from '../components/mixins/AllCards.json';
+    // import json from '../components/mixins/AllCards.json';
+    import {GamePlay} from "../components/mixins/gameplay.ts";
 
     export default {
         name: "Game",
@@ -42,44 +43,7 @@
         },
         data() {
             return {
-                gameInstance: {
-                    activePlayer: 0,
-                    players: [
-                        {
-                            name: "Filip",
-                            points: {
-                                terraformation: 11,
-                                victory: 7
-                            },
-                            password: "abcde"
-                        },
-                        {
-                            name: "Radek",
-                            points: {
-                                terraformation: 12,
-                                victory: 2
-                            },
-                            password: "edcba"
-                        },
-                        {
-                            name: "Szymon",
-                            points: {
-                                terraformation: 4,
-                                victory: 0
-                            },
-                            password: null
-                        },
-                        {
-                            name: "Wercia",
-                            points: {
-                                terraformation: 4,
-                                victory: 0
-                            },
-                            password: null
-                        }
-                    ]
-                }
-                //gameInstance: gameplay(4)
+                gameInstance: new GamePlay()
             }
         },
         computed: {

@@ -147,8 +147,7 @@
 .terraformation-bar {
 
     width: 100%;
-    background-image: linear-gradient(to bottom, rgba(225, 225, 225, 0.7), rgba(225, 225, 225, 0.7)),
-    url("/src/assets/img/metal.jpg");
+    background-color: antiquewhite;
     border: 3px solid #333333;
     border-radius: 4px;
     box-shadow: 2px 4px 10px rgba(0,0,0,0.4);
@@ -165,7 +164,7 @@
             background-color: antiquewhite;
             padding: 5px 0;
             border-left: 4px solid orangered;
-            border-bottom: 3px solid orangered;
+
             border-right: 4px solid orangered;
             font-size: 20px;
 
@@ -175,7 +174,7 @@
         &-cell:first-child {
             border-left: 0;
         }
-        &-cell:last-child {
+        &-cell:nth-child(4) {
             border-right: 0;
         }
 
@@ -197,7 +196,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-
+            border-top: 3px solid orangered;
             background-color: antiquewhite;
             padding: 5px 10px;
             border-left: 4px solid orangered;
@@ -238,7 +237,10 @@
             &-cell {
                 border-bottom: 3px solid orangered;
             }
-
+            &-cell:last-child {
+                box-sizing: content-box;
+                border-bottom: 0;
+            }
             &-cell:nth-child(3){
                 border-left: 0;
             }

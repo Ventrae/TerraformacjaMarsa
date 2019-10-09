@@ -40,13 +40,14 @@ export default class Card implements ICard {
     text: String;
     behavior: cardBehavior;
 
-    constructor(price: number, requirements: Object, symbol: Symbols, text: String, title: String, type: Types) {
+    constructor(price: number, requirements: Object, symbol: Symbols, text: String, title: String, type: Types, behavior: cardBehavior) {
         this.price = price;
         this.requirements = requirements;
         this.symbol = symbol;
         this.text = text;
         this.title = title;
         this.type = type;
+        this.behavior = behavior;
     }
 
     playCard(gameplay: gameplay, player: Player): void {

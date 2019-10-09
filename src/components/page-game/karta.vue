@@ -66,7 +66,8 @@
         },
         methods: {
             executeCard() {
-                alert(this.title);
+                alert("Zagrywam " + this.title);
+                this.$emit('played', this.symbol);
             }
         },
         data() {
