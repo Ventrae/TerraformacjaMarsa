@@ -50,7 +50,8 @@
                 gameInstance: new GamePlay(
                     [
                         this.filipC,
-                        new Player("Credicor", "Paweł")
+                        new Player("Credicor", "Paweł"),
+                        new Player("Credicor", "Szymon")
                     ]
                 )
             }
