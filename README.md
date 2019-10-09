@@ -1,6 +1,9 @@
 # "Terraformacja Marsa"
 
+[![Build Status](https://travis-ci.com/Ventrae/TerraformacjaMarsa.svg?branch=master)](https://travis-ci.com/Ventrae/TerraformacjaMarsa.svg?branch=master)
+
 Mój projekt "Terraformacja Marsa", jest implementacją gry planszowej o tym samym tytule.
+
 
 ### Technologie użyte w projekcie:
  - Vue.js (with VueCLI, Vue-Router)
