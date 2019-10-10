@@ -2,22 +2,13 @@ import Resource from "./resources";
 import Indicators from "./indicators";
 import Points from "./points";
 
-export default abstract class CardBehavior {
+export default class CardBehavior {
     resources: Resource;
     income: Resource;
     points: Points;
     indicators: Indicators;
 
-    constructor(
-        resources?: Resource,
-        income?: Resource,
-        terraformation?: number,
-        victory?: number,
-        water?: number,
-        temperature?: number,
-        oxygen?: number
-    )
-    {
+    constructor(resources?: Resource, income?: Resource, terraformation?: number, victory?: number, water?: number, temperature?: number, oxygen?: number) {
 
         if(resources != undefined) this.resources = resources;
         else this.resources = null;
@@ -26,6 +17,7 @@ export default abstract class CardBehavior {
 
         if(terraformation != undefined) this.points.terraformation = terraformation;
         else this.points.terraformation = 0;
+        </error in line above (delete this sort-of comment when fixing)>
         if(victory != undefined) this.points.victory = victory;
         else this.points.victory = 0;
 

@@ -43,7 +43,7 @@
 </template>
 
 <script>
-    import Karta from "./karta";
+    import Karta from "./card";
     import login from "./login";
 
     export default {

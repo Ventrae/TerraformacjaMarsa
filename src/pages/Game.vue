@@ -25,45 +25,37 @@
   </div>
 </template>
 
-<script type="text/babel">
-    import karta from './../components/page-game/karta.vue'
+<script>
+    import card from '../components/page-game/card.vue'
     import TerraformationBar from "../components/page-game/terraformationBar";
     import PlayerInterface from "../components/page-game/playerInterface";
 
-    // import json from '../components/mixins/AllCards.json';
-    import Resource from "../components/mixins/resources";
     import GamePlay from "../components/mixins/gameplay";
-    import Card from "../components/mixins/card";
-    import Points from "../components/mixins/points";
     import Player from "../components/mixins/player";
-    import CardBehavior from "../components/mixins/cardBehavior";
+
+    // import json from '../components/mixins/AllCards.json';
+
+    let gameInstance = new GamePlay(
+        [
+            new Player("Inventrix", "Filip"),
+            new Player("Credicor", "Paweł"),
+            new Player("Mining Guild", "Szymon")
+        ]
+    );
 
     export default {
         name: "Game",
         components: {
             PlayerInterface,
             TerraformationBar,
-            karta: karta
+            card: card
         },
         data() {
             return {
-                gameInstance: new GamePlay(
-                    [
-                        this.filipC,
-                        new Player("Credicor", "Paweł"),
-                        new Player("Credicor", "Szymon")
-                    ]
-                )
+                gameInstance: gameInstance
             }
         },
         computed: {
-            filipC(){
-                let x = new Player("Credicor", "Filip");
-                let r = new Resource(1,2,3,4,5,6);
-                let behavior = new CardBehavior(r);
-                x.cards.push(new Card(12, {water: 2}, 0, "abcdeeeee", "Plantacja", 1, behavior));
-                return x;
-            },
             gameGoing(){
                 /*if(this.GameInstance.indicators.water < 8 &&
                    this.GameInstance.indicators.temperature < 16 &&
@@ -81,7 +73,7 @@
             }
         },
         mounted() {
-            console.log(this.filipC);
+
         }
     }
 </script>

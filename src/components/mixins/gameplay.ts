@@ -32,7 +32,7 @@ export default class GamePlay {
          }
      }
 
-     increaseGenerals(general:string, levels?:number):void{
+     increaseGenerals(general:string, levels?:number):void {
          switch (general) {
              case "water":
                  if(levels != undefined) this.indicators.water += levels;

@@ -11,13 +11,13 @@
         </div>
         <div class="col-12 terraformation-bar-generals row">
             <div class="col-4 terraformation-bar-generals-cell generals-cell-water">
-                0 <i class="ml-2 fas fa-tint"></i>
+                {{ this.gameInstance.indicators.water }} <i class="ml-2 fas fa-tint"></i>
             </div>
             <div class="col-4 terraformation-bar-generals-cell generals-cell-temperature">
-                -30&#x2103;<i class="ml-2 fas fa-thermometer-half"></i>
+                {{ this.gameInstance.indicators.temperature }}&#x2103;<i class="ml-2 fas fa-thermometer-half"></i>
             </div>
             <div class="col-4 terraformation-bar-generals-cell generals-cell-oxygen">
-                0%<i class="ml-2 fas fa-globe"></i>
+                {{ this.gameInstance.indicators.oxygen }}%<i class="ml-2 fas fa-globe"></i>
             </div>
         </div>
     </div>
