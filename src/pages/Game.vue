@@ -43,6 +43,10 @@
         ]
     );
 
+    problem occurs somewhere in cardBehavior.ts file
+    this is mockup comment / error trigger for travis/information at repo
+    delete lines 46-48 during work
+
     export default {
         name: "Game",
         components: {

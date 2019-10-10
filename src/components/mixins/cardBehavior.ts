@@ -17,7 +17,6 @@ export default class CardBehavior {
 
         if(terraformation != undefined) this.points.terraformation = terraformation;
         else this.points.terraformation = 0;
-        </error in line above (delete this sort-of comment when fixing)>
         if(victory != undefined) this.points.victory = victory;
         else this.points.victory = 0;
 
