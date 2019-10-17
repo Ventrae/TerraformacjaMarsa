@@ -1,7 +1,8 @@
 import Resource from "./resources";
-import Card from "./card";
+import Card, {Symbols, Types} from "./card";
 import Points from "./points";
 import cardBehavior from "./cardBehavior";
+import Indicators from "./indicators";
 
 interface IPlayer {
     name: String,
@@ -24,7 +25,7 @@ export default class Player implements IPlayer {
     cards: Array<Card>;
     aquiredSymbols: Array<Object>;
 
-    constructor(corporation:String, name: String) {
+    constructor(corporation: String, name: String) {
 
         this.name = name;
         this.password = null;
@@ -33,7 +34,6 @@ export default class Player implements IPlayer {
         this.points = new Points(0,0);
         this.aquiredSymbols = [];
         this.cards = [];
-
 
         switch (corporation) {
             case "Credicor":
@@ -52,7 +52,7 @@ export default class Player implements IPlayer {
                 this.resources = new Resource(50, 0,0,0,0,0);
                 this.income = new Resource(2,1,1,1,1,0);
                 let b = new cardBehavior(new Resource(0,2,1,4,2,0));
-                this.cards.push(new Card(4,{},1, "Zabieracie zasoby z Ziemi", "Zasoby z Ziemi", 0, b));
+                this.cards.push(new Card("Zasoby z Ziemi", Types.blue, 4,Symbols.earth, "Zabieracie zasoby z Ziemi", b, new Indicators(0,0,0)));
                 this.aquiredSymbols.push("science");
                 this.aquiredSymbols.push("earth");
             break;
@@ -80,6 +80,15 @@ export default class Player implements IPlayer {
                 // Exploration
 
 
+            break;
+            case "TEST":
+                this.resources = new Resource(50, 0,0,0,0,0);
+                this.income = new Resource(2,1,1,1,1,0);
+                let testB = new cardBehavior(new Resource(0,2,1,4,2,0));
+                this.cards.push(new Card("Eksploracja Fobosa", Types.blue, 10,Symbols.star, "Eksplorujecie Fobosa", testB, new Indicators(0,-20,0)));
+                this.cards.push(new Card("Plantacja", Types.green, 4,Symbols.leaf, "Zabieracie zasoby z Ziemi", testB, new Indicators(2,0,0)));
+                this.cards.push(new Card("Kwatery mieszkalne", Types.yellow, 4,Symbols.science, "Zabieracie zasoby z Ziemi", testB, new Indicators(0,0,6)));
+                this.cards.push(new Card("Deszcz meteorów", Types.red, 4,Symbols.earth, "Zabieracie zasoby z Ziemi", testB, new Indicators(0,-10,4)));
             break;
         }
 

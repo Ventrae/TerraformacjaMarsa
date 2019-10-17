@@ -6,18 +6,15 @@ import Indicators from "./indicators";
 
 export default class GamePlay {
 
-     cards: Array<Card> = [];
-     players: Array<Player> = [];
-     activePlayer: number = 0;
+     cards: Card[] = [];
+     players: Player[] = [];
+     activePlayer: number;
      indicators: Indicators;
 
      constructor(players:Array<Player>) {
          this.players = players;
-         this.indicators = {
-             water: 0,
-             temperature: -30,
-             oxygen: 0
-         }
+         this.indicators = new Indicators(0,-30,0);
+         this.activePlayer = 0;
      }
 
      preRound(){

@@ -70,9 +70,13 @@
   }
 
   &-img-top {
-    min-height: 180px;
+    height: 160px;
     border-radius: 0;
     border-bottom: 1px solid dimgray;
+      img {
+          width: 100%;
+          height: auto;
+      }
   }
 
   &-body {

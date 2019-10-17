@@ -2,16 +2,16 @@
   <div class="page" v-if="gameGoing">
 
     <terraformation-bar
-        :gameInstance="this.gameInstance"
-        :active="this.gameInstance.activePlayer"
+        :gameInstance="gameInstance"
+        :active="gameInstance.activePlayer"
     ></terraformation-bar>
 
     <player-interface
-     v-for="player of this.gameInstance.players"
+     v-for="player of gameInstance.players"
      :player="player"
-     :active="this.gameInstance.activePlayer"
+     :active="gameInstance.activePlayer"
      @finishedTurn="nextTurn()"
-     v-if="player === this.gameInstance.players[this.gameInstance.activePlayer]"
+     v-if="player === gameInstance.players[gameInstance.activePlayer]"
     >
     </player-interface>
 
@@ -35,14 +35,6 @@
 
     // import json from '../components/mixins/AllCards.json';
 
-    let gameInstance = new GamePlay(
-        [
-            new Player("Inventrix", "Filip"),
-            new Player("Credicor", "Paweł"),
-            new Player("Mining Guild", "Szymon")
-        ]
-    );
-
     export default {
         name: "Game",
         components: {
@@ -52,7 +44,13 @@
         },
         data() {
             return {
-                gameInstance: gameInstance
+                gameInstance: new GamePlay(
+                    [
+                        new Player("Inventrix", "Filip"),
+                        new Player("TEST", "Paweł"),
+                        new Player("Mining Guild", "Szymon")
+                    ]
+                )
             }
         },
         computed: {
@@ -73,7 +71,7 @@
             }
         },
         mounted() {
-
+            console.log(this.gameInstance);
         }
     }
 </script>

@@ -10,7 +10,9 @@
       <card-symbol :symbol="this.symbol"></card-symbol>
     </div>
 
-    <img :alt="this.title" :src="this.image" class="card-img-top"/>
+      <div class="card-img-top">
+        <img :alt="this.title" :src="this.image"/>
+      </div>
 
     <div class="card-body text-center">
       <div class="card-body--text">

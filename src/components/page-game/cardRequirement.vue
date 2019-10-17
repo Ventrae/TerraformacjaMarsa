@@ -1,12 +1,12 @@
 <template>
   <div class="card--price-requirements">
-    <div class="card--price-requirements--water" v-if="this.water != null">
+    <div class="card--price-requirements--water" v-if="this.water != 0">
       <i class="mr-1 fas fa-tint"></i>{{ this.water }}
     </div>
-    <div class="card--price-requirements--temperature" v-if="this.temperature != null">
+    <div class="card--price-requirements--temperature" v-if="this.temperature != -30">
       <i class="mr-1 fas fa-thermometer-half"></i>{{ this.temperature }}&#x2103;
     </div>
-    <div class="card--price-requirements--oxygen" v-if="this.oxygen != null">
+    <div class="card--price-requirements--oxygen" v-if="this.oxygen != 0">
       <i class="mr-1 fas fa-globe"></i>{{ this.oxygen }}%
     </div>
   </div>

@@ -1,21 +1,22 @@
 import cardBehavior from "./cardBehavior";
 import Player from "./player";
 import gameplay from "./gameplay";
+import Indicators from "./indicators";
 
-enum Types {
-    blue,
-    green,
-    red,
-    yellow
+export enum Types {
+    'blue' = 'blue',
+    'green' = 'green',
+    'red' = 'red',
+    'yellow' = 'yellow'
 }
 
-enum Symbols {
-    science,
-    earth,
-    iron,
-    star,
-    animals,
-    leaf
+export enum Symbols {
+    science = 'science',
+    earth = 'earth',
+    iron = 'iron',
+    star = 'star',
+    animals = 'animals',
+    leaf = 'leaf'
 }
 
 interface ICard {
@@ -23,7 +24,7 @@ interface ICard {
     title: String;
     price: number;
     symbol: Symbols;
-    requirements: Object;
+    requirements: Indicators;
     text: String;
     behavior: cardBehavior;
 
@@ -36,26 +37,29 @@ export default class Card implements ICard {
     title: String;
     price: number;
     symbol: Symbols;
-    requirements: Object;
+    requirements: Indicators;
     text: String;
     behavior: cardBehavior;
 
-    constructor(price: number, requirements: Object, symbol: Symbols, text: String, title: String, type: Types, behavior: cardBehavior) {
-        this.price = price;
-        this.requirements = requirements;
-        this.symbol = symbol;
-        this.text = text;
+    constructor(title: String, type: Types, price: number, symbol: Symbols, text: String, behavior: cardBehavior, requirements?: Indicators, ) {
         this.title = title;
         this.type = type;
+        this.price = price;
+        this.symbol = symbol;
+        this.text = text;
         this.behavior = behavior;
+        if(requirements != undefined) this.requirements = requirements;
+        else this.requirements = new Indicators(0,0,0);
     }
 
     playCard(gameplay: gameplay, player: Player): void {
-        player.resources = {...player.resources,...this.behavior.resources};
-        player.income = {...player.income,...this.behavior.income};
-        player.aquiredSymbols.push(this.symbol);
-        player.points = {...player.points,...this.behavior.points};
-
+        if(gameplay.indicators.water >= this.requirements.water && gameplay.indicators.temperature >= this.requirements.temperature && gameplay.indicators.oxygen >= this.requirements.oxygen) {
+            player.resources = {...player.resources, ...this.behavior.resources};
+            player.income = {...player.income, ...this.behavior.income};
+            player.aquiredSymbols.push(this.symbol);
+            player.points = {...player.points, ...this.behavior.points};
+        }
+        else alert ("WYMAGANIA NIESPEŁNIONE!");
     }
 
 }
