@@ -30,10 +30,10 @@
     import TerraformationBar from "../components/page-game/terraformationBar";
     import PlayerInterface from "../components/page-game/playerInterface";
 
-    import GamePlay from "../components/mixins/gameplay";
-    import Player from "../components/mixins/player";
+    import GamePlay from "../models/gameplay";
+    import Player from "../models/player";
 
-    // import json from '../components/mixins/AllCards.json';
+    // import json from '../components/models/AllCards.json';
 
     export default {
         name: "Game",
@@ -48,14 +48,15 @@
                     [
                         new Player("Inventrix", "Filip"),
                         new Player("TEST", "Paweł"),
-                        new Player("Mining Guild", "Szymon")
+                        new Player("Mining Guild", "Szymon", "abcde")
                     ]
                 )
             }
         },
         computed: {
             gameGoing(){
-                /*if(this.GameInstance.indicators.water < 8 &&
+                /*
+                if(this.GameInstance.indicators.water < 8 &&
                    this.GameInstance.indicators.temperature < 16 &&
                    this.GameInstance.indicators.oxygen < 16){
                     return true;

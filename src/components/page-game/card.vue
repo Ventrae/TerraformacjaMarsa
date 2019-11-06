@@ -1,22 +1,22 @@
 <template>
   <div :class="bgtype" @click="executeCard()" class="card" style="width: 18rem;">
 
-    <h5>{{ this.title }}</h5>
+    <h5>{{ this.card.title }}</h5>
 
     <div class="card--price">
-      <card-cost>{{ this.price }}</card-cost>
-      <card-requirement :oxygen="this.requirements.oxygen" :temperature="this.requirements.temperature"
-                        :water="this.requirements.water"></card-requirement>
-      <card-symbol :symbol="this.symbol"></card-symbol>
+      <card-cost>{{ this.card.price }}</card-cost>
+      <card-requirement :oxygen="this.card.requirements.oxygen" :temperature="this.card.requirements.temperature"
+                        :water="this.card.requirements.water"></card-requirement>
+      <card-symbol :symbol="this.card.symbol"></card-symbol>
     </div>
 
       <div class="card-img-top">
-        <img :alt="this.title" :src="this.image"/>
+        <img :alt="this.card.title" :src="this.image"/>
       </div>
 
     <div class="card-body text-center">
       <div class="card-body--text">
-        <p>{{ this.text }}</p>
+        <p>{{ this.card.text }}</p>
       </div>
     </div>
 
@@ -27,6 +27,7 @@
     import CardSymbol from "./cardSymbol";
     import CardCost from "./cardCost";
     import CardRequirement from "./cardRequirement";
+    import {Card, Types} from "../../models/card";
 
     export default {
         name: "karta",
@@ -36,33 +37,8 @@
             CardSymbol,
         },
         props: {
-            type: {
-                type: String,
-                required: true
-            },
-            title: {
-                type: String,
-                required: true
-            },
-            price: {
-                type: Number,
-                required: true
-            },
-            symbol: {
-                type: String,
-                required: true
-            },
-            requirements: {
+            card: {
                 type: Object,
-                required: false,
-                default: {
-                    water: null,
-                    temperature: null,
-                    oxygen: null
-                }
-            },
-            text: {
-                type: String,
                 required: true
             }
         },
@@ -74,12 +50,12 @@
         },
         data() {
             return {
-                bgtype: "card--bg-" + this.type
+                bgtype: "card--bg-" + this.card.type
             }
         },
         computed: {
             image() {
-                return "/src/assets/img/cards/" + this.type + "/" + this.title + ".jpg";
+                return "/src/assets/img/cards/" + this.card.type + "/" + this.card.title + ".jpg";
             }
         }
     }

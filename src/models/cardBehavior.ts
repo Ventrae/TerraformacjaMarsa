@@ -3,6 +3,7 @@ import Indicators from "./indicators";
 import Points from "./points";
 
 export default class CardBehavior {
+
     resources: Resource;
     income: Resource;
     points: Points;

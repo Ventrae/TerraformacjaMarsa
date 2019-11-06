@@ -12,7 +12,7 @@
         name: "login",
         props: {
             cpassword: {
-                type: String,
+                type: String | null,
                 required: true
             },
             name: {

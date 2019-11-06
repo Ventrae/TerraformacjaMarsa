@@ -29,13 +29,8 @@
             <div class="cardSection row">
                 <karta
                     v-for="(card, index) in player.cards"
-                    :type="card.type"
-                    :title="card.title"
-                    :price="card.price"
-                    :requirements="card.requirements"
-                    :symbol="card.symbol"
-                    :text="card.text"
-                    @played="addSymbol($event, index)"
+                    :card="card"
+                    @played="executeCard($event, index)"
                 ></karta>
             </div>
         </template>
@@ -63,7 +58,8 @@
             }
         },
         methods: {
-            addSymbol(arg, index){
+            executeCard(arg, index){
+                this.player.resources.cash += this.arg;
                 // usuń kartę w this.player.cards
                 console.log(this.player.cards);
                 this.player.aquiredSymbols.push(arg);
