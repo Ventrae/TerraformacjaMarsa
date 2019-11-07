@@ -1,28 +1,33 @@
 <template>
-    <form @submit="addPlayer()">
-        <h2 class="mb-3">Rozpocznij rozgrywkę:</h2>
+    <form @submit="addPlayer()" class="player-form">
         <input type="text" placeholder="Nazwa gracza" v-model="name"/>
         <input type="password" placeholder="Hasło gracza (opcjonalnie)" v-model="password" />
-        <select v-model="corporation">
-            <option>Credicor</option>
-            <option>Mining Guild</option>
-            <option>Inventrix</option>
-            <option>Ecoline</option>
-            <option>Saturn Systems</option>
-            <option>Teractor</option>
-            <option>Thorgate</option>
-            <option>Aphrodite</option>
-            <option>United Nations Mars Initiative</option>
-        </select>
+        <corporation-card></corporation-card>
+        <!--
+            <select v-model="corporation">
+                <option>Credicor</option>
+                <option>Mining Guild</option>
+                <option>Inventrix</option>
+                <option>Ecoline</option>
+                <option>Saturn Systems</option>
+                <option>Teractor</option>
+                <option>Thorgate</option>
+                <option>Aphrodite</option>
+                <option>United Nations Mars Initiative</option>
+            </select>
+        -->
+
         <button type="submit">Dodaj gracza</button>
     </form>
 </template>
 
 <script>
     import Player from "../../models/player";
+    import CorporationCard from "./corporation-card";
 
     export default {
         name: "player-form",
+        components: {CorporationCard},
         data(){
             return {
                 name: '',

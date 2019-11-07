@@ -5,3 +5,8 @@
   background: url($image) -moz-linear-gradient(90deg, $color1, $color2); /* For Firefox 3.6 to 15 */
   background: url($image) linear-gradient(0deg, $color1, $color2); /* Standard syntax */
 }
+
+@mixin steel-background($color, $alpha1, $alpha2){
+    background-image: linear-gradient(to bottom, rgba($color, $alpha1), rgba($color, $alpha2)),
+    url("/src/assets/img/metal.jpg");
+}

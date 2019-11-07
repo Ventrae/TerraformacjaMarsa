@@ -76,8 +76,11 @@
             },
             checkEnd(){
                 if(this.gameInstance.indicators.temperature >= 16 && this.gameInstance.indicators.water >= 9 && this.gameInstance.indicators.oxygen >= 14) {
-                    alert('koniec gry!');
+                    this.finishGame();
                 }
+            },
+            finishGame(){
+                alert('koniec gry!');
             }
         },
         mounted() {

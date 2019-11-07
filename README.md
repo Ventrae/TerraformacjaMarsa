@@ -26,7 +26,7 @@ Mój projekt "Terraformacja Marsa", jest implementacją gry planszowej o tym sam
  - zliczanie punktów zwycięstwa każdego z graczy podczas rozgrywki
   **[Implemented]**
  - monitorowanie aktualnego stanu planety (poziom tlenu, temperatura, oceany, zalesienie itp.) i kończenie gry w przypadku osiągnięcia odpowiednich progów
-  **[Not implemented]**
+  **[Implemented]**
  - system "nagród z gry"
   **[Not implemented] [Planned for further development]**
  - system "tytuów z gry"

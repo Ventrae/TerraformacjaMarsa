@@ -9,10 +9,11 @@
       </button>
     </div>
     -->
+      <h2 class="mb-3">Rozpocznij rozgrywkę:</h2>
+      <player-list :players="players"></player-list>
+      <player-form @playerAdded="addPlayer($event)"></player-form>
 
-    <player-form @playerAdded="addPlayer($event)"></player-form>
 
-    <player-list :players="players"></player-list>
 
   </div>
 </template>

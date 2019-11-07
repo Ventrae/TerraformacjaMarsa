@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="player-list">
         <player-list-item
             v-for="player of players"
             :player="player"
