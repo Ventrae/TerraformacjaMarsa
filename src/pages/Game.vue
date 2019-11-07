@@ -12,6 +12,7 @@
      :active="gameInstance.activePlayer"
      :indicators="gameInstance.indicators"
      @finishedTurn="nextTurn()"
+     @terraformed="checkEnd()"
      v-if="player === gameInstance.players[gameInstance.activePlayer]"
     >
     </player-interface>
@@ -72,6 +73,11 @@
             nextTurn(){
                 if(this.gameInstance.activePlayer === (this.gameInstance.players.length-1)) this.gameInstance.activePlayer = 0;
                 else ++this.gameInstance.activePlayer;
+            },
+            checkEnd(){
+                if(this.gameInstance.indicators.temperature >= 16 && this.gameInstance.indicators.water >= 9 && this.gameInstance.indicators.oxygen >= 14) {
+                    alert('koniec gry!');
+                }
             }
         },
         mounted() {

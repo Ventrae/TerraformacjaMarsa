@@ -1,6 +1,5 @@
 import cardBehavior from "./cardBehavior";
 import Player from "./player";
-import gameplay from "./gameplay";
 import Indicators from "./indicators";
 
 export enum Types {
@@ -76,6 +75,10 @@ export default class Card implements ICard {
                 indicators.oxygen += this.behavior.indicators.oxygen;
 
                 player.points.terraformation += this.behavior.points.terraformation;
+                // Za podnoszenie poziomu nawodnienia, temperatury i tlenu, podnosimy też WT gracza
+                player.points.terraformation += this.behavior.indicators.water;
+                player.points.terraformation += this.behavior.indicators.temperature;
+                player.points.terraformation += this.behavior.indicators.oxygen;
                 player.points.victory += this.behavior.points.victory;
 
                 player.aquiredSymbols.push(this.symbol);
@@ -91,7 +94,7 @@ export default class Card implements ICard {
 
         }
         else {
-            alert ("WYMAGANIA NIESPEŁNIONE!");
+            alert ("Wymagania niespełnione!");
             return false;
         }
     }

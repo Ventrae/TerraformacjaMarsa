@@ -6,7 +6,8 @@ import Indicators from "./indicators";
 
 interface IPlayer {
     name: String,
-    password: String | null,
+    password: String | null
+    corporation: String
     resources: Resource
     income: Resource
     points: Points
@@ -19,7 +20,7 @@ export default class Player implements IPlayer {
 
     name: String;
     password: String | null;
-
+    corporation: String;
     resources: Resource;
     income: Resource;
     points: Points;
@@ -31,9 +32,10 @@ export default class Player implements IPlayer {
         this.name = name;
         this.password = null;
         if(password != undefined) this.password = password;
+        this.corporation = corporation;
         this.resources = new Resource();
         this.income = new Resource();
-        this.points = new Points(0,0);
+        this.points = new Points(20,0);
         this.aquiredSymbols = [];
         this.cards = [];
 
@@ -103,7 +105,9 @@ export default class Player implements IPlayer {
 
     productionPhase():void {
 
+        this.resources.cash += this.points.terraformation;
         this.resources.cash += this.income.cash;
+
         this.resources.iron += this.income.iron;
         this.resources.titan += this.income.titan;
         this.resources.green += this.income.green;
