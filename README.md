@@ -14,17 +14,17 @@ Mój projekt "Terraformacja Marsa", jest implementacją gry planszowej o tym sam
 
 ### Funkcjonalności:
  - możliwość prowadzenia rozgrywki w formacie hot seat
-  **[Not implemented]**
+  **[Implemented]**
  - możliwość deklaracji ilości graczy i korporacji startowych (specjalizacji gracza)
   **[Not implemented]**
  - możliwość wykonywania akcji podstawowych w swojej turze (np. postawienine lasu)
-  **[Not implemented]**
+  **[Implemented]**
  - możliwość zagrywania kart w swojej turze (akcje "customowe" np. +1 jednostka zieleni/turę & +1 poziom tlenu na planecie)
-  **[Not implemented]**
- - automatyczne naliczanie zasobów na początku tury (zasób = zasób + przychód zasobu)
-  **[Not implemented]**
+  **[Implemented]**
+ - automatyczne naliczanie zasobów na końcu tury (zasób = zasób + przychód zasobu)
+  **[Implemented]**
  - zliczanie punktów zwycięstwa każdego z graczy podczas rozgrywki
-  **[Not implemented]**
+  **[Implemented]**
  - monitorowanie aktualnego stanu planety (poziom tlenu, temperatura, oceany, zalesienie itp.) i kończenie gry w przypadku osiągnięcia odpowiednich progów
   **[Not implemented]**
  - system "nagród z gry"

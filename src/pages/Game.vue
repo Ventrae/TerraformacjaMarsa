@@ -10,6 +10,7 @@
      v-for="player of gameInstance.players"
      :player="player"
      :active="gameInstance.activePlayer"
+     :indicators="gameInstance.indicators"
      @finishedTurn="nextTurn()"
      v-if="player === gameInstance.players[gameInstance.activePlayer]"
     >
@@ -35,6 +36,14 @@
 
     // import json from '../components/models/AllCards.json';
 
+    export var gameInstance = new GamePlay(
+        [
+            new Player("Inventrix", "Filip"),
+            new Player("TEST", "Paweł"),
+            new Player("Mining Guild", "Szymon", "abcde")
+        ]
+    );
+
     export default {
         name: "Game",
         components: {
@@ -44,13 +53,7 @@
         },
         data() {
             return {
-                gameInstance: new GamePlay(
-                    [
-                        new Player("Inventrix", "Filip"),
-                        new Player("TEST", "Paweł"),
-                        new Player("Mining Guild", "Szymon", "abcde")
-                    ]
-                )
+                gameInstance: gameInstance
             }
         },
         computed: {

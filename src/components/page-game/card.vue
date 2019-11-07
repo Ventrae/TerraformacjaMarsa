@@ -27,7 +27,7 @@
     import CardSymbol from "./cardSymbol";
     import CardCost from "./cardCost";
     import CardRequirement from "./cardRequirement";
-    import {Card, Types} from "../../models/card";
+    import { Card } from "../../models/card";
 
     export default {
         name: "karta",
@@ -44,8 +44,8 @@
         },
         methods: {
             executeCard() {
-                alert("Zagrywam " + this.title);
-                this.$emit('played', this.symbol);
+                // alert("Zagrywam " + this.card.title);
+                this.$emit('played', this.card);
             }
         },
         data() {

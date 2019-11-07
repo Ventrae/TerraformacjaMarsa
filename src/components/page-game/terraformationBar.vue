@@ -6,17 +6,17 @@
                 v-for="player in gameInstance.players"
                 :class="{'active-turn':player === gameInstance.players[active]}"
             >
-                [{{ player.name }}] = {{ player.points.terraformation }}<i class="ml-1 far fa-sun"></i>
+                [{{ player.name }}] = {{ player.points.terraformation }}<i class="ml-1 far fa-sun" title="Współczynnik terraformacji"></i>
             </div>
         </div>
         <div class="col-12 terraformation-bar-generals row">
-            <div class="col-4 terraformation-bar-generals-cell generals-cell-water">
+            <div class="col-4 terraformation-bar-generals-cell generals-cell-water" title="Nawodnienie Marsa">
                 {{ this.gameInstance.indicators.water }} <i class="ml-2 fas fa-tint"></i>
             </div>
-            <div class="col-4 terraformation-bar-generals-cell generals-cell-temperature">
+            <div class="col-4 terraformation-bar-generals-cell generals-cell-temperature" title="Temperatura na Marsie">
                 {{ this.gameInstance.indicators.temperature }}&#x2103;<i class="ml-2 fas fa-thermometer-half"></i>
             </div>
-            <div class="col-4 terraformation-bar-generals-cell generals-cell-oxygen">
+            <div class="col-4 terraformation-bar-generals-cell generals-cell-oxygen" title="Poziom tlenu na Marsie">
                 {{ this.gameInstance.indicators.oxygen }}%<i class="ml-2 fas fa-globe"></i>
             </div>
         </div>

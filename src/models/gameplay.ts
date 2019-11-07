@@ -29,17 +29,17 @@ export default class GamePlay {
          }
      }
 
-     increaseGenerals(general:string, levels?:number):void {
-         switch (general) {
-             case "water":
+     increaseIndicators(indicator:string, levels?:number):void {
+         switch (indicator) {
+             case "Water" || "water":
                  if(levels != undefined) this.indicators.water += levels;
                  else this.indicators.water += 1;
              break;
-             case "temperature":
+             case "Temperature" || "temperature":
                  if(levels != undefined) this.indicators.temperature += levels*2;
                  else this.indicators.temperature += 2;
              break;
-             case "oxygen":
+             case "Oxygen" || "oxygen":
                  if(levels != undefined) this.indicators.oxygen += levels;
                  else this.indicators.oxygen += 1;
              break;

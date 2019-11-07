@@ -28,7 +28,7 @@ interface ICard {
     text: String;
     behavior: cardBehavior;
 
-    playCard(gameplay: gameplay, player:Player):void
+    playCard(indicators: Indicators, player:Player):boolean
 
 }
 
@@ -49,17 +49,51 @@ export default class Card implements ICard {
         this.text = text;
         this.behavior = behavior;
         if(requirements != undefined) this.requirements = requirements;
-        else this.requirements = new Indicators(0,0,0);
+        else this.requirements = new Indicators(0,-30,0);
     }
 
-    playCard(gameplay: gameplay, player: Player): void {
-        if(gameplay.indicators.water >= this.requirements.water && gameplay.indicators.temperature >= this.requirements.temperature && gameplay.indicators.oxygen >= this.requirements.oxygen) {
-            player.resources = {...player.resources, ...this.behavior.resources};
-            player.income = {...player.income, ...this.behavior.income};
-            player.aquiredSymbols.push(this.symbol);
-            player.points = {...player.points, ...this.behavior.points};
+    playCard(indicators: Indicators, player: Player):boolean {
+        if(indicators.water >= this.requirements.water && indicators.temperature >= this.requirements.temperature && indicators.oxygen >= this.requirements.oxygen) {
+
+            if(player.resources.cash >= this.price){
+
+                player.resources.cash += this.behavior.resources.cash;
+                player.resources.iron += this.behavior.resources.iron;
+                player.resources.titan += this.behavior.resources.titan;
+                player.resources.green += this.behavior.resources.green;
+                player.resources.energy += this.behavior.resources.energy;
+                player.resources.heat += this.behavior.resources.heat;
+
+                player.income.cash += this.behavior.income.cash;
+                player.income.iron += this.behavior.income.iron;
+                player.income.titan += this.behavior.income.titan;
+                player.income.green += this.behavior.income.green;
+                player.income.energy += this.behavior.income.energy;
+                player.income.heat += this.behavior.income.heat;
+
+                indicators.water += this.behavior.indicators.water;
+                indicators.temperature += (2*this.behavior.indicators.temperature);
+                indicators.oxygen += this.behavior.indicators.oxygen;
+
+                player.points.terraformation += this.behavior.points.terraformation;
+                player.points.victory += this.behavior.points.victory;
+
+                player.aquiredSymbols.push(this.symbol);
+                player.resources.cash -= this.price;
+
+                return true;
+
+            }
+            else {
+                alert("Brak gotówki!");
+                return false;
+            }
+
         }
-        else alert ("WYMAGANIA NIESPEŁNIONE!");
+        else {
+            alert ("WYMAGANIA NIESPEŁNIONE!");
+            return false;
+        }
     }
 
 }
