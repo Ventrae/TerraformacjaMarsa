@@ -1,160 +1,186 @@
+.cardSectionWrapper {
+
+    padding: 0;
+    margin-bottom: -30px;
+
+
+    .cardSection {
+        box-sizing: border-box;
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        padding: 10px 100px 20px;
+        background: $ui-background;
+        border-top: 4px solid $ui-border;
+        margin: 0 !important;
+        min-height: 500px;
+
+        h2 {
+            width: 100%;
+            height: 50px;
+            padding-bottom: 10px;
+            margin: 0;
+            border-bottom: 2px solid $ui-border;
+        }
+    }
+}
 
 .card {
 
-  border: 1px solid dimgray;
-  margin: 5px;
-  cursor: pointer;
-  z-index: 1;
-  transition-duration: .15s;
-  border-radius: 12px;
+    border: 1px solid dimgray;
+    margin: 15px;
+    cursor: pointer;
+    z-index: 1;
+    transition-duration: .15s;
+    border-radius: 12px;
 
-  &:hover {
-    transform: scale(1.3);
-    z-index: 2;
-  }
-
-  &--price {
-    display: flex;
-    background: lightgray;
-    height: 40px;
-
-    div {
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    &:hover {
+        transform: scale(1.3);
+        z-index: 2;
     }
 
-    &-cash {
-      background: goldenrod;
-      font-family: 'Turret Road', cursive;
-      font-weight: bold;
-      width: 20%;
+    &--price {
+        display: flex;
+        background: lightgray;
+        height: 40px;
+
+        div {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &-cash {
+            background: goldenrod;
+            font-family: 'Turret Road', cursive;
+            font-weight: bold;
+            width: 20%;
+        }
+
+        &-requirements {
+            background-image: linear-gradient(to bottom, rgba(180, 180, 180, 0.85), rgba(180, 180, 180, 0.85)),
+            url("/src/assets/img/metal.jpg");
+            width: 60%;
+
+            div {
+                width: 32%;
+            }
+
+            &--temperature {
+                color: $temperature;
+            }
+
+            &--oxygen {
+                color: $oxygen;
+            }
+
+            &--water {
+                color: $water;
+            }
+
+        }
+
+        &-symbol {
+            width: 20%;
+            padding: 5px 20px;
+        }
+
     }
 
-    &-requirements {
-      background-image: linear-gradient(to bottom, rgba(180, 180, 180, 0.85), rgba(180, 180, 180, 0.85)),
-      url("/src/assets/img/metal.jpg");
-      width: 60%;
+    h5 {
+        text-shadow: 2px 2px #222222;
 
-      div {
-        width: 32%;
-      }
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+    }
 
-      &--temperature {
-        color: #d62f32;
-      }
+    &-img-top {
+        height: 160px;
+        border-radius: 0;
+        border-bottom: 1px solid dimgray;
 
-      &--oxygen {
-        color: darkorange;
-      }
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
 
-      &--water {
-        color: #1c39a8;
-      }
+    &-body {
+
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+        padding: 0.65rem;
+
+        &--text {
+            display: flex;
+            min-height: 120px;
+
+            text-align: left;
+            padding: 10px;
+            font-size: 14px;
+
+            border: 1px solid dimgray;
+            background: floralwhite;
+            color: $ui-font;
+        }
 
     }
 
-    &-symbol {
-      width: 20%;
-      padding: 5px 20px;
+    &--bg-yellow h5 {
+        background-image: linear-gradient(to bottom, rgba(247, 202, 24, 0.7), rgba(245, 215, 110, 0.7)),
+        url("/src/assets/img/metal.jpg");
     }
 
-  }
-
-  h5 {
-    text-shadow: 2px 2px #222222;
-
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-  }
-
-  &-img-top {
-    height: 160px;
-    border-radius: 0;
-    border-bottom: 1px solid dimgray;
-      img {
-          width: 100%;
-          height: auto;
-      }
-  }
-
-  &-body {
-
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
-    padding: 0.65rem;
-
-    &--text {
-      display: flex;
-      min-height: 120px;
-
-      text-align: left;
-      padding: 10px;
-      font-size: 14px;
-
-      border: 1px solid dimgray;
-      background: floralwhite;
+    &--bg-red h5 {
+        background-image: linear-gradient(to bottom, rgba(242, 38, 19, 0.7), rgba(236, 100, 75, 0.7)),
+        url("/src/assets/img/metal.jpg");
     }
 
-  }
+    &--bg-blue h5 {
+        background-image: linear-gradient(to bottom, rgba(34, 167, 240, 0.7), rgba(37, 116, 169, 0.7)),
+        url("/src/assets/img/metal.jpg");
+    }
 
-  &--bg-yellow h5 {
-    background-image: linear-gradient(to bottom, rgba(247, 202, 24, 0.7), rgba(245, 215, 110, 0.7)),
-    url("/src/assets/img/metal.jpg");
-  }
-
-  &--bg-red h5 {
-    background-image: linear-gradient(to bottom, rgba(242, 38, 19, 0.7), rgba(236, 100, 75, 0.7)),
-    url("/src/assets/img/metal.jpg");
-  }
-
-  &--bg-blue h5 {
-    background-image: linear-gradient(to bottom, rgba(34, 167, 240, 0.7), rgba(37, 116, 169, 0.7)),
-    url("/src/assets/img/metal.jpg");
-  }
-
-  &--bg-green h5 {
-    background-image: linear-gradient(to bottom, rgba(38, 166, 91, 0.7), rgba(144, 198, 149, 0.7)),
-    url("/src/assets/img/metal.jpg");
-  }
+    &--bg-green h5 {
+        background-image: linear-gradient(to bottom, rgba(38, 166, 91, 0.7), rgba(144, 198, 149, 0.7)),
+        url("/src/assets/img/metal.jpg");
+    }
 }
 
 .card--bg-red {
-  .card-body {
-    background-image: linear-gradient(to bottom, rgba(242, 38, 19, 0.7), rgba(236, 100, 75, 0.7)),
-    url("/src/assets/img/metal.jpg");
-  }
+    .card-body {
+        @include steel-background(rgb(242, 38, 19), 0.6, 0.5);
+    }
 }
 
 .card--bg-yellow {
-  .card-body {
-    background-image: linear-gradient(to bottom, rgba(247, 202, 24, 0.7), rgba(245, 215, 110, 0.7)),
-    url("/src/assets/img/metal.jpg");
-  }
+    .card-body {
+        @include steel-background(rgb(247, 202, 24), 0.6, 0.5);
+    }
 }
 
 .card--bg-green {
-  .card-body {
-    background-image: linear-gradient(to bottom, rgba(38, 166, 91, 0.7), rgba(144, 198, 149, 0.7)),
-    url("/src/assets/img/metal.jpg");
-  }
+    .card-body {
+        @include steel-background(rgb(38, 166, 91), 0.6, 0.5);
+    }
 }
 
 .card--bg-blue {
-  .card-body {
-    background-image: linear-gradient(to bottom, rgba(34, 167, 240, 0.7), rgba(37, 116, 169, 0.7)),
-    url("/src/assets/img/metal.jpg");
-  }
+    .card-body {
+        @include steel-background(rgb(34, 167, 240), 0.6, 0.5);
+    }
 }
 
 .terraformation-bar {
 
     width: 100%;
-    background-color: antiquewhite;
-    border: 3px solid #333333;
+    background-color: $ui-background;
+    border: 3px solid $ui-border;
+    border-top: 0;
     border-radius: 4px;
-    box-shadow: 2px 4px 10px rgba(0,0,0,0.4);
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.4);
 
     &-players {
 
@@ -165,11 +191,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: antiquewhite;
+            background-color: $ui-background;
             padding: 5px 0;
-            border-left: 4px solid orangered;
+            border-left: 4px solid $ui-border;
 
-            border-right: 4px solid orangered;
+            border-right: 4px solid $ui-border;
             font-size: 20px;
 
 
@@ -178,6 +204,7 @@
         &-cell:first-child {
             border-left: 0;
         }
+
         &-cell:nth-child(4) {
             border-right: 0;
         }
@@ -187,7 +214,7 @@
         }
 
         .active-turn {
-            color: orangered;
+            color: $ui-border;
         }
     }
 
@@ -200,11 +227,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            border-top: 3px solid orangered;
-            background-color: antiquewhite;
+            border-top: 3px solid $ui-border;
+            background-color: $ui-background;
             padding: 5px 10px;
-            border-left: 4px solid orangered;
-            border-right: 4px solid orangered;
+            border-left: 4px solid $ui-border;
+            border-right: 4px solid $ui-border;
             font-size: 24px;
 
         }
@@ -212,20 +239,23 @@
         &-cell:first-child {
             border-left: 0;
         }
+
         &-cell:last-child {
             border-right: 0;
         }
 
         .generals-cell-water {
-            color: #1c39a8;
+            color: $water;
             border-right: 0;
         }
+
         .generals-cell-temperature {
-            color: #d62f32;
+            color: $temperature;
             border-right: 0;
         }
+
         .generals-cell-oxygen {
-            color: darkorange;
+            color: $oxygen;
         }
     }
 }
@@ -233,19 +263,18 @@
 @media screen and (max-width: 767px) {
     .terraformation-bar {
 
-
-        border: 4px solid #333333;
-
         &-players {
 
             &-cell {
-                border-bottom: 3px solid orangered;
+                border-bottom: 3px solid $ui-border;
             }
+
             &-cell:last-child {
                 box-sizing: content-box;
                 border-bottom: 0;
             }
-            &-cell:nth-child(3){
+
+            &-cell:nth-child(3) {
                 border-left: 0;
             }
         }
@@ -257,6 +286,7 @@
             &-cell:first-child {
                 border-left: 0;
             }
+
             &-cell:last-child {
                 border-right: 0;
             }
@@ -275,11 +305,13 @@
             &-cell {
                 width: 100%;
                 font-size: 16px;
+
                 .fa-sun {
                     font-size: 16px !important;
                 }
             }
         }
+
         &-generals {
 
             width: 100%;
@@ -288,10 +320,52 @@
                 width: 100%;
                 font-size: 18px;
             }
+
             &-cell:last-child {
                 border-bottom: 0;
             }
         }
     }
 
+}
+
+.login-card {
+
+
+    background: $ui-background;
+    border-left: 6px solid $ui-border;
+    @include black-shadow();
+
+    input[type=text] {
+        padding: 5px 15px;
+        outline: none;
+        border: 1px solid transparent;
+        border-left: 4px solid transparent;
+        -webkit-text-security: square;
+
+        &:focus {
+            color: $ui-border;
+            border: 1px solid $ui-border;
+            border-left: 4px solid $ui-border;
+        }
+
+        &::selection {
+            background: rgba($ui-border, 0.45);
+        }
+    }
+
+    button {
+
+        outline: none;
+        border: none;
+        padding: 6px 10px;
+        color: $ui-font;
+        font-weight: bold;
+        background: white;
+
+        &:hover, &:focus {
+            filter: brightness(95%);
+        }
+
+    }
 }

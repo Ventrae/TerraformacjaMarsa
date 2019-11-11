@@ -1,30 +1,25 @@
 <template>
-  <div class="page" v-if="gameGoing">
+    <div class="page" v-if="gameGoing">
 
-    <terraformation-bar
-        :gameInstance="gameInstance"
-        :active="gameInstance.activePlayer"
-    ></terraformation-bar>
+        <transition name="slide-down" appear>
+            <terraformation-bar
+                :gameInstance="gameInstance"
+                :active="gameInstance.activePlayer"
+            ></terraformation-bar>
+        </transition>
 
-    <player-interface
-     v-for="player of gameInstance.players"
-     :player="player"
-     :active="gameInstance.activePlayer"
-     :indicators="gameInstance.indicators"
-     @finishedTurn="nextTurn()"
-     @terraformed="checkEnd()"
-     v-if="player === gameInstance.players[gameInstance.activePlayer]"
-    >
-    </player-interface>
-
-    <div class="row justify-content-around">
-
-
-
+        <player-interface
+            v-for="player of gameInstance.players"
+            :player="player"
+            :active="gameInstance.activePlayer"
+            :indicators="gameInstance.indicators"
+            @finishedTurn="nextTurn()"
+            @terraformed="checkEnd()"
+            v-if="player === gameInstance.players[gameInstance.activePlayer]"
+        >
+        </player-interface>
 
     </div>
-
-  </div>
 </template>
 
 <script>
@@ -58,7 +53,7 @@
             }
         },
         computed: {
-            gameGoing(){
+            gameGoing() {
                 /*
                 if(this.GameInstance.indicators.water < 8 &&
                    this.GameInstance.indicators.temperature < 16 &&
@@ -70,16 +65,16 @@
             }
         },
         methods: {
-            nextTurn(){
-                if(this.gameInstance.activePlayer === (this.gameInstance.players.length-1)) this.gameInstance.activePlayer = 0;
+            nextTurn() {
+                if (this.gameInstance.activePlayer === (this.gameInstance.players.length - 1)) this.gameInstance.activePlayer = 0;
                 else ++this.gameInstance.activePlayer;
             },
-            checkEnd(){
-                if(this.gameInstance.indicators.temperature >= 16 && this.gameInstance.indicators.water >= 9 && this.gameInstance.indicators.oxygen >= 14) {
+            checkEnd() {
+                if (this.gameInstance.indicators.temperature >= 16 && this.gameInstance.indicators.water >= 9 && this.gameInstance.indicators.oxygen >= 14) {
                     this.finishGame();
                 }
             },
-            finishGame(){
+            finishGame() {
                 alert('koniec gry!');
             }
         },
@@ -90,5 +85,16 @@
 </script>
 
 <style scoped>
+    .slide-down-enter-active {
+        animation: slide-down-animation 1.4s ease-out forwards;
+    }
 
+    @keyframes slide-down-animation {
+        from {
+            transform: translateY(-90px);
+        }
+        to {
+            transform: translateY(0);
+        }
+    }
 </style>

@@ -1,29 +1,38 @@
 <template>
-    <div class="terraformation-bar mb-5 row mx-auto">
-        <div class="col-12 row terraformation-bar-players">
-            <div
-                class="terraformation-bar-players-cell col-6 col-md-3"
-                v-for="player in gameInstance.players"
-                :class="{'active-turn':player === gameInstance.players[active]}"
-            >
-                [{{ player.name }}] = {{ player.points.terraformation }}<i class="ml-1 far fa-sun" title="Współczynnik terraformacji"></i>
+    <div>
+        <div class="terraformation-bar mb-5 row mx-auto">
+            <div class="col-12 row terraformation-bar-players">
+                <div
+                    class="terraformation-bar-players-cell col-6 col-md-3"
+                    v-for="player in gameInstance.players"
+                    :class="{'active-turn':player === gameInstance.players[active]}"
+                >
+                    [{{ player.name }}] = {{ player.points.terraformation }}
+                    <div class="ml-1" v-html="renderedSymbol('terraformation')" title="Współczynnik terraformacji"></div>
+                </div>
             </div>
-        </div>
-        <div class="col-12 terraformation-bar-generals row">
-            <div class="col-4 terraformation-bar-generals-cell generals-cell-water" title="Nawodnienie Marsa">
-                {{ this.gameInstance.indicators.water }} <i class="ml-2 fas fa-tint"></i>
-            </div>
-            <div class="col-4 terraformation-bar-generals-cell generals-cell-temperature" title="Temperatura na Marsie">
-                {{ this.gameInstance.indicators.temperature }}&#x2103;<i class="ml-2 fas fa-thermometer-half"></i>
-            </div>
-            <div class="col-4 terraformation-bar-generals-cell generals-cell-oxygen" title="Poziom tlenu na Marsie">
-                {{ this.gameInstance.indicators.oxygen }}%<i class="ml-2 fas fa-globe"></i>
+            <div class="col-12 terraformation-bar-generals row">
+                <div class="col-4 terraformation-bar-generals-cell generals-cell-water" title="Nawodnienie Marsa">
+                    {{ this.gameInstance.indicators.water }}
+                    <div v-html="renderedSymbol('water')" class="ml-2"></div>
+                </div>
+                <div class="col-4 terraformation-bar-generals-cell generals-cell-temperature"
+                     title="Temperatura na Marsie">
+                    {{ this.gameInstance.indicators.temperature }}&#x2103;
+                    <div v-html="renderedSymbol('temperature')" class="ml-2"></div>
+                </div>
+                <div class="col-4 terraformation-bar-generals-cell generals-cell-oxygen" title="Poziom tlenu na Marsie">
+                    {{ this.gameInstance.indicators.oxygen }}%
+                    <div v-html="renderedSymbol('oxygen')" class="ml-2"></div>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    import {renderedSymbol} from "../../mixins/renderedSymbol";
+
     export default {
         name: "terraformationBar",
         props: {
@@ -35,7 +44,8 @@
                 type: Number,
                 required: true
             }
-        }
+        },
+        mixins: [renderedSymbol]
     }
 </script>
 

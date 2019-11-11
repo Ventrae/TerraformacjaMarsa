@@ -1,8 +1,8 @@
 <template>
-    <form class="col-12 col-md-6 mx-auto alert alert-warning">
+    <form class="col-12 col-md-6 mx-auto alert login-card">
         <h2>Zaloguj się - <b>{{ this.name }}</b></h2>
         <h5 class="text-danger" v-if="this.error">Nieprawidłowe hasło!</h5>
-        <input type="password" placeholder="Wpisz hasło" v-model="password" v-if="this.cpassword !== null" />
+        <input type="text" placeholder="Wpisz hasło" v-model="password" v-if="this.cpassword !== null"/>
         <button @click="checklogin()">Zaloguj</button>
     </form>
 </template>
@@ -27,11 +27,10 @@
             }
         },
         methods: {
-            checklogin(){
-                if(this.cpassword === null){
+            checklogin() {
+                if (this.cpassword === null) {
                     this.$emit('logged', true);
-                }
-                else {
+                } else {
                     if (this.cpassword === this.password) {
                         this.$emit('logged', true);
                     } else this.error = true;

@@ -1,5 +1,5 @@
 <template>
-    <div class="playerInterface">
+    <div class="playerInterface row">
         <login
             :cpassword="player.password"
             :name="player.name"
@@ -11,11 +11,13 @@
             <div class="col-12 d-flex flex-column mb-4">
                 <h4>{{ player.name }}</h4>
                 <div>Gracz: {{ this.active }}</div>
-                <div>Współczynnik terraformacji: {{ player.points.terraformation }}, punkty zwycięstwa: {{ player.points.victory }}</div>
+                <div>Współczynnik terraformacji: {{ player.points.terraformation }}, punkty zwycięstwa: {{
+                    player.points.victory }}
+                </div>
                 <button class="col-2" @click="finishTurn()">KONIEC TURY</button>
             </div>
 
-            <div class="standardOperations row">
+            <div class="col-12 standardOperations row">
                 <div class="col-12 col-md-6">
                     <button
                         @click="standardOperation(0)"
@@ -66,8 +68,9 @@
                 </div>
             </div>
 
-            <div class="mt-2 resources row">
-                <div class="col-12"><h5>Symbole:</h5> <span v-for="symbol in player.aquiredSymbols">{{ symbol }}, </span> </div>
+            <div class="col-12 mt-2 resources row">
+                <div class="col-12"><h5>Symbole:</h5> <span
+                    v-for="symbol in player.aquiredSymbols">{{ symbol }}, </span></div>
                 <div class="col-12">
                     <h5>Zasoby:</h5>
                     <ul class="mt-2 row">
@@ -93,14 +96,18 @@
                 </div>
             </div>
 
-            <div class="cardSection row">
-                <karta
-                    v-for="(card, index) in player.cards"
-                    :card="card"
-                    @played="executeCard($event, index)"
-                ></karta>
+            <div class="col-12 mx-auto row cardSectionWrapper">
+                <div class="cardSection">
+                    <h2>Karty akcji:</h2>
+                    <karta
+                        v-for="(card, index) in player.cards"
+                        :card="card"
+                        @played="executeCard($event, index)"
+                    ></karta>
+                </div>
             </div>
         </template>
+
     </div>
 </template>
 
@@ -131,24 +138,23 @@
             }
         },
         methods: {
-            standardOperation(operation){
+            standardOperation(operation) {
                 switch (operation) {
                     case 0:
                         // Założenie miasta
-                        if(this.player.resources.cash >= 25){
+                        if (this.player.resources.cash >= 25) {
                             this.player.income.cash += 1;
                             this.player.resources.cash -= 25;
 
                             this.actions++;
-                            if(this.actions === 2) {
+                            if (this.actions === 2) {
                                 this.finishTurn();
                             }
-                        }
-                        else alert('Nie można założyć miasta, musisz posiadać 25 jednostek gotówki');
-                    break;
+                        } else alert('Nie można założyć miasta, musisz posiadać 25 jednostek gotówki');
+                        break;
                     case 1:
                         // Założenie lasu
-                        if(this.player.resources.green >= 8){
+                        if (this.player.resources.green >= 8) {
                             this.indicators.oxygen += 1;
                             this.player.resources.green -= 8;
 
@@ -156,15 +162,14 @@
                             this.$emit('terraformed');
 
                             this.actions++;
-                            if(this.actions === 2) {
+                            if (this.actions === 2) {
                                 this.finishTurn();
                             }
-                        }
-                        else alert('Nie można założyć lasu, musisz posiadać 8 jednostek zieleni');
-                    break;
+                        } else alert('Nie można założyć lasu, musisz posiadać 8 jednostek zieleni');
+                        break;
                     case 2:
                         // Założenie oceanu
-                        if(this.player.resources.cash >= 18){
+                        if (this.player.resources.cash >= 18) {
                             this.indicators.water += 1;
                             this.player.resources.cash -= 18;
 
@@ -172,15 +177,14 @@
                             this.$emit('terraformed');
 
                             this.actions++;
-                            if(this.actions === 2) {
+                            if (this.actions === 2) {
                                 this.finishTurn();
                             }
-                        }
-                        else alert('Nie można założyć oceanu, musisz posiadać 18 jednostek gotówki');
-                    break;
+                        } else alert('Nie można założyć oceanu, musisz posiadać 18 jednostek gotówki');
+                        break;
                     case 3:
                         // Podniesienie temperatury (za gotówkę)
-                        if(this.player.resources.cash >= 14){
+                        if (this.player.resources.cash >= 14) {
                             this.indicators.temperature += 2;
                             this.player.resources.cash -= 14;
 
@@ -188,28 +192,26 @@
                             this.$emit('terraformed');
 
                             this.actions++;
-                            if(this.actions === 2) {
+                            if (this.actions === 2) {
                                 this.finishTurn();
                             }
-                        }
-                        else alert('Nie można podnieść temperatury, musisz posiadać 14 jednostek gotówki');
-                    break;
+                        } else alert('Nie można podnieść temperatury, musisz posiadać 14 jednostek gotówki');
+                        break;
                     case 4:
                         // Zwiększenie produkcji energii
-                        if(this.player.resources.cash >= 11){
+                        if (this.player.resources.cash >= 11) {
                             this.player.income.energy += 1;
                             this.player.resources.cash -= 11;
 
                             this.actions++;
-                            if(this.actions === 2) {
+                            if (this.actions === 2) {
                                 this.finishTurn();
                             }
-                        }
-                        else alert('Nie można zwiększyć produkcji energii, musisz posiadać 11 jednostek gotówki');
-                    break;
+                        } else alert('Nie można zwiększyć produkcji energii, musisz posiadać 11 jednostek gotówki');
+                        break;
                     case 5:
                         // Zwiększenie temperatury (za 8 energii)
-                        if(this.player.resources.heat >= 8){
+                        if (this.player.resources.heat >= 8) {
                             this.indicators.temperature += 1;
                             this.player.resources.heat -= 8;
 
@@ -217,23 +219,22 @@
                             this.$emit('terraformed');
 
                             this.actions++;
-                            if(this.actions === 2) {
+                            if (this.actions === 2) {
                                 this.finishTurn();
                             }
-                        }
-                        else alert('Nie można podnieść temperatury, musisz posiadać 8 jednostek ciepła');
-                    break;
+                        } else alert('Nie można podnieść temperatury, musisz posiadać 8 jednostek ciepła');
+                        break;
                 }
             },
-            executeCard(arg, index){
+            executeCard(arg, index) {
 
-                if(arg.playCard(this.indicators, this.player)) {
+                if (arg.playCard(this.indicators, this.player)) {
                     this.$emit('terraformed');
                     // Jeśli wymagania są spełnione usuń kartę z ręki gracza (playCard() zwraca boolean w razie sukcesu)
 
                     this.player.cards.splice(index, 1);
                     this.actions++;
-                    if(this.actions === 2) {
+                    if (this.actions === 2) {
                         this.finishTurn();
                     }
                 }
@@ -243,38 +244,38 @@
                 this.player.productionPhase();
                 this.$emit('finishedTurn', this.active);
             },
-            renderSymbol(symbol){
+            renderSymbol(symbol) {
                 switch (symbol) {
                     case 'cash':
                         return "<i class='fas fa-dollar-sign' style='color: #FF8C00' title='Gotówka'></i>";
-                    break;
+                        break;
                     case 'iron':
                         return "<i class='fas fa-tools' style='color: #7f4b23' title='Stal'></i>";
-                    break;
+                        break;
                     case 'titan':
                         return "<i class='far fa-star' style='color:#FFD700;' title='Tytan'></i>";
-                    break;
+                        break;
                     case 'green':
                         return "<i class='fas fa-leaf' style='color: forestgreen;' title='Zieleń'></i>";
-                    break;
+                        break;
                     case 'energy':
                         return "<i class='fas fa-bolt' style='color: #c024fc' title='Energia'></i>";
-                    break;
+                        break;
                     case 'heat':
                         return "<i class='fas fa-fire' style='color: #db3a1a' title='Ciepło'></i>";
-                    break;
+                        break;
                     case 'water':
                         return "<i class='fas fa-tint' style='color: #1c39a8' title='Nawodnienie Marsa'></i>";
-                    break;
+                        break;
                     case 'temperature':
                         return "<i class='fas fa-thermometer-half' style='color: #d62f32' title='Temperatura Marsa'></i>";
-                    break;
+                        break;
                     case 'oxygen':
                         return "<i class='fas fa-globe' style='color: #FF8C00' title='Poziom tlenu na Marsie'></i>";
-                    break;
+                        break;
                 }
             },
-            logIn(arg){
+            logIn(arg) {
                 this.logged = arg;
             }
         },
@@ -293,10 +294,12 @@
         font-size: 24px;
         text-align: center;
     }
+
     .resource-icons li {
         display: flex;
         flex-flow: row wrap;
     }
+
     .resources div ul {
         padding-inline-start: 0;
         display: flex;

@@ -1,7 +1,7 @@
 <template>
-  <div class="card--price-cash">
-    <slot></slot>
-  </div>
+    <div class="card--price-cash">
+        <slot></slot>
+    </div>
 </template>
 
 <script>

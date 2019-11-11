@@ -1,7 +1,7 @@
 <template>
     <form @submit="addPlayer()" class="player-form">
         <input type="text" placeholder="Nazwa gracza" v-model="name"/>
-        <input type="password" placeholder="Hasło gracza (opcjonalnie)" v-model="password" />
+        <input type="password" placeholder="Hasło gracza (opcjonalnie)" v-model="password"/>
         <corporation-card></corporation-card>
         <!--
             <select v-model="corporation">
@@ -28,7 +28,7 @@
     export default {
         name: "player-form",
         components: {CorporationCard},
-        data(){
+        data() {
             return {
                 name: '',
                 password: '',
@@ -36,7 +36,7 @@
             }
         },
         methods: {
-            addPlayer(){
+            addPlayer() {
                 let playerC = new Player(this.corporation, this.name, this.password);
                 this.$emit('playerAdded', playerC);
             }

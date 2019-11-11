@@ -2,8 +2,6 @@
     <div class="player-list--item">
 
 
-
-
         {{ player.name }} - {{ player.password }} - {{ player.corporation }}
     </div>
 </template>

@@ -12,7 +12,7 @@ export enum Types {
 export enum Symbols {
     science = 'science',
     earth = 'earth',
-    iron = 'iron',
+    steel = 'steel',
     star = 'star',
     animals = 'animals',
     leaf = 'leaf'
@@ -27,7 +27,7 @@ interface ICard {
     text: String;
     behavior: cardBehavior;
 
-    playCard(indicators: Indicators, player:Player):boolean
+    playCard(indicators: Indicators, player: Player): boolean
 
 }
 
@@ -40,21 +40,21 @@ export default class Card implements ICard {
     text: String;
     behavior: cardBehavior;
 
-    constructor(title: String, type: Types, price: number, symbol: Symbols, text: String, behavior: cardBehavior, requirements?: Indicators, ) {
+    constructor(title: String, type: Types, price: number, symbol: Symbols, text: String, behavior: cardBehavior, requirements?: Indicators,) {
         this.title = title;
         this.type = type;
         this.price = price;
         this.symbol = symbol;
         this.text = text;
         this.behavior = behavior;
-        if(requirements != undefined) this.requirements = requirements;
-        else this.requirements = new Indicators(0,-30,0);
+        if (requirements != undefined) this.requirements = requirements;
+        else this.requirements = new Indicators(0, -30, 0);
     }
 
-    playCard(indicators: Indicators, player: Player):boolean {
-        if(indicators.water >= this.requirements.water && indicators.temperature >= this.requirements.temperature && indicators.oxygen >= this.requirements.oxygen) {
+    playCard(indicators: Indicators, player: Player): boolean {
+        if (indicators.water >= this.requirements.water && indicators.temperature >= this.requirements.temperature && indicators.oxygen >= this.requirements.oxygen) {
 
-            if(player.resources.cash >= this.price){
+            if (player.resources.cash >= this.price) {
 
                 player.resources.cash += this.behavior.resources.cash;
                 player.resources.iron += this.behavior.resources.iron;
@@ -71,7 +71,7 @@ export default class Card implements ICard {
                 player.income.heat += this.behavior.income.heat;
 
                 indicators.water += this.behavior.indicators.water;
-                indicators.temperature += (2*this.behavior.indicators.temperature);
+                indicators.temperature += (2 * this.behavior.indicators.temperature);
                 indicators.oxygen += this.behavior.indicators.oxygen;
 
                 player.points.terraformation += this.behavior.points.terraformation;
@@ -86,15 +86,13 @@ export default class Card implements ICard {
 
                 return true;
 
-            }
-            else {
+            } else {
                 alert("Brak gotówki!");
                 return false;
             }
 
-        }
-        else {
-            alert ("Wymagania niespełnione!");
+        } else {
+            alert("Wymagania niespełnione!");
             return false;
         }
     }

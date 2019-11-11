@@ -1,33 +1,33 @@
 <template>
-  <div :class="bgtype" @click="executeCard()" class="card" style="width: 18rem;">
+    <div :class="bgtype" @click="executeCard()" class="card" style="width: 18rem;">
 
-    <h5>{{ this.card.title }}</h5>
+        <h5>{{ this.card.title }}</h5>
 
-    <div class="card--price">
-      <card-cost>{{ this.card.price }}</card-cost>
-      <card-requirement :oxygen="this.card.requirements.oxygen" :temperature="this.card.requirements.temperature"
-                        :water="this.card.requirements.water"></card-requirement>
-      <card-symbol :symbol="this.card.symbol"></card-symbol>
+        <div class="card--price">
+            <card-cost>{{ this.card.price }}</card-cost>
+            <card-requirement :oxygen="this.card.requirements.oxygen" :temperature="this.card.requirements.temperature"
+                              :water="this.card.requirements.water"></card-requirement>
+            <card-symbol :symbol="this.card.symbol"></card-symbol>
+        </div>
+
+        <div class="card-img-top">
+            <img :alt="this.card.title" :src="this.image"/>
+        </div>
+
+        <div class="card-body text-center">
+            <div class="card-body--text">
+                <p>{{ this.card.text }}</p>
+            </div>
+        </div>
+
     </div>
-
-      <div class="card-img-top">
-        <img :alt="this.card.title" :src="this.image"/>
-      </div>
-
-    <div class="card-body text-center">
-      <div class="card-body--text">
-        <p>{{ this.card.text }}</p>
-      </div>
-    </div>
-
-  </div>
 </template>
 
 <script>
     import CardSymbol from "./cardSymbol";
     import CardCost from "./cardCost";
     import CardRequirement from "./cardRequirement";
-    import { Card } from "../../models/card";
+    import {Card} from "../../models/card";
 
     export default {
         name: "karta",
@@ -62,10 +62,10 @@
 </script>
 
 <style scoped>
-  h5 {
-    text-align: center;
-    color: ghostwhite;
-    padding: 10px;
-    margin: 0;
-  }
+    h5 {
+        text-align: center;
+        color: ghostwhite;
+        padding: 10px;
+        margin: 0;
+    }
 </style>

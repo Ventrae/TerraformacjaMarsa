@@ -2,75 +2,76 @@
 
 .navbar {
 
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
-  url("/src/assets/img/metal.jpg");
+    @include steel-background(black, 0.4, 0.6);
 
-  &-toggler {
-    border-color: transparent !important;
-    outline: none !important;
-  }
-
-  .hamburger {
-    outline: none;
-
-    &-inner, &-inner:before, &-inner:after {
-      background-color: $orange6 !important;
-    }
-  }
-
-  &-nav .nav-item .nav-link {
-    color: $orange4 !important;
-    transition-duration: .3s;
-    font-size: 18px;
-    padding: 0 15px 5px;
-    border-bottom: 3px solid transparent;
-
-    &:hover {
-      color: $orange6 !important;
-      border-bottom: 3px solid $orange6;
+    &-toggler {
+        border-color: transparent !important;
+        outline: none !important;
     }
 
-  }
+    .hamburger {
+        outline: none;
 
-  &--logo {
-    font-family: 'Turret Road', cursive;
-    font-weight: 900;
-    letter-spacing: 1px;
-    font-size: 24px;
-    color: $orange6 !important;
-  }
+        &-inner, &-inner:before, &-inner:after {
+            background-color: $orange3 !important;
+        }
+    }
 
-  -webkit-box-shadow: 0px 6px 15px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 6px 15px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 6px 15px 0px rgba(0, 0, 0, 0.75);
+    &-nav .nav-item .nav-link {
+        color: $orange1 !important;
+        transition-duration: .3s;
+        font-size: 18px;
+        padding: 0 15px 5px;
+        border-bottom: 3px solid transparent;
 
-  padding: 5px 10px 5px 15px;
+        &:hover {
+            color: $orange3 !important;
+            border-bottom: 3px solid $orange3;
+        }
+
+    }
+
+    &--logo {
+        font-family: 'Turret Road', cursive;
+        font-weight: 900;
+        letter-spacing: 1px;
+        font-size: 24px;
+        color: $orange3 !important;
+    }
+
+    @include black-shadow-big();
+
+    padding: 5px 10px 5px 15px;
 
 }
 
 .footer {
     padding: 5px 10px;
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
-    url("/src/assets/img/metal.jpg");
+    @include steel-background(black, 0.4, 0.6);
 
 }
 
 .page {
-  margin-top: 66px;
-  margin-bottom: 64px;
+    margin-top: 55px;
+    margin-bottom: 64px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    @media screen and (max-width: 991px) {
+        margin-top: 46px;
+    }
 }
 
 @media screen and (max-width: 991px) {
-  .navbar {
-    display: flex;
-  }
-  .navbar-brand {
-    margin-right: 0.5rem;
-    font-size: 18px;
-  }
-  .hamburger {
-    margin-top: 1px;
-    display: initial;
-  }
+    .navbar {
+        display: flex;
+    }
+    .navbar-brand {
+        margin-right: 0.5rem;
+        font-size: 18px;
+    }
+    .hamburger {
+        margin-top: 1px;
+        display: initial;
+    }
 
 }
