@@ -1,7 +1,12 @@
 export const renderedSymbol = {
     methods: {
-        renderedSymbol(symbol) {
+        renderedSymbol(symbol, production) {
+
             let x;
+            if(production !== true){
+                production = false;
+            }
+
             switch (symbol) {
                 // Symbole z kart
                 case "science":
@@ -19,9 +24,10 @@ export const renderedSymbol = {
                 case "leaf":
                     x = "<i class=\"fas fa-leaf symbol-leaf\" title='Liść'></i>";
                     break;
-                case "animal":
+                case "animals":
                     x = "<i class=\"fas fa-paw symbol-animals\" title='Zwierzęta'></i>";
                     break;
+
                 // Symbole wody, temperatury, tlenu, współczynnika terraformacji
                 case "water":
                     x = "<i class=\"fas fa-tint symbol-water\" title='Nawodnienie Marsa'></i>";
@@ -35,25 +41,57 @@ export const renderedSymbol = {
                 case "terraformation":
                     x = "<i class=\"far fa-sun symbol-terraformation\" title='Współczynnik terraformacji'></i>";
                     break;
+
                 // Symbole zasobów gracza
                 case "cash":
-                    x = "<i class=\"fas fa-dollar-sign symbol-cash\" title='Gotówka'></i>";
+                    if(production === true){
+                        x = "<b class='production-bold'>[ <i class=\"fas fa-dollar-sign symbol-cash\" title='Przychód gotówki'></i> ]</b>";
+                    }
+                    else {
+                        x = "<i class=\"fas fa-dollar-sign symbol-cash\" title='Gotówka'></i>";
+                    }
                     break;
                 case "iron":
-                    x = "<i class=\"fas fa-tools symbol-iron\" title='Stal'></i>";
+                    if(production === true){
+                        x = "<b class='production-bold'>[ <i class=\"fas fa-tools symbol-iron\" title='Produkcja stali'></i> ]</b>";
+                    }
+                    else {
+                        x = "<i class=\"fas fa-tools symbol-iron\" title='Stal'></i>";
+                    }
                     break;
                 case "titan":
-                    x = "<i class=\"far fa-star symbol-titan\" title='Tytan'></i>";
+                    if(production === true){
+                        x = "<b class='production-bold'>[ <i class=\"far fa-star symbol-titan\" title='Produkcja tytanu'></i> ]</b>";
+                    }
+                    else {
+                        x = "<i class=\"far fa-star symbol-titan\" title='Tytan'></i>";
+                    }
                     break;
                 case "green":
-                    x = "<i class='fas fa-leaf symbol-green' title='Zieleń'></i>";
+                    if(production === true){
+                        x = "<b class='production-bold'>[ <i class='fas fa-leaf symbol-green' title='Produkcja zieleni'></i> ]</b>";
+                    }
+                    else {
+                        x = "<i class='fas fa-leaf symbol-green' title='Zieleń'></i>";
+                    }
                     break;
                 case "energy":
-                    x = "<i class=\"fas fa-bolt symbol-energy\" title='Energia'></i>";
+                    if(production === true){
+                        x = "<b class='production-bold'>[ <i class=\"fas fa-bolt symbol-energy\" title='Produkcja energii'></i> ]</b>";
+                    }
+                    else {
+                        x = "<i class=\"fas fa-bolt symbol-energy\" title='Energia'></i>";
+                    }
                     break;
                 case "heat":
-                    x = "<i class=\"fas fa-fire symbol-heat\" title='Ciepło'></i>";
+                    if(production === true) {
+                        x = "<b class='production-bold'>[ <i class=\"fas fa-fire symbol-heat\" title='Produkcja ciepła'></i> ]</b>";
+                    }
+                    else {
+                        x = "<i class=\"fas fa-fire symbol-heat\" title='Ciepło'></i>";
+                    }
                     break;
+
                 default:
                     x = `<i class="far fa-question-circle symbol-energy" :title="'Brakuje ikony - ' + symbol"></i>`;
                     break;

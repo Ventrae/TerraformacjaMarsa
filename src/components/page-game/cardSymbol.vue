@@ -21,37 +21,26 @@
 <style scoped>
     .science {
         background-color: whitesmoke;
-        color: darkgoldenrod;
         font-size: 28px;
     }
-
     .earth {
         background: mediumseagreen;
-        color: royalblue;
         font-size: 26px;
     }
-
     .leaf {
-        background-color: forestgreen;
-        color: lawngreen;
+        background-color: palegreen;
         font-size: 22px;
     }
-
     .animals {
         background-color: lightseagreen;
-        color: darkolivegreen;
         font-size: 26px;
     }
-
     .steel {
         background-color: #7f4b23;
-        color: #482613;
         font-size: 22px;
     }
-
     .star {
         background-color: #484848;
-        color: #FFD700;
         font-size: 24px;
     }
 </style>

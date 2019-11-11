@@ -1,5 +1,5 @@
 <template>
-    <div :class="bgtype" @click="executeCard()" class="card" style="width: 18rem;">
+    <div :class="bgtype" @click="executeCard()" class="card" >
 
         <h5>{{ this.card.title }}</h5>
 

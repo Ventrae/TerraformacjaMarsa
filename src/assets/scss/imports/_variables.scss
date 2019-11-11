@@ -3,6 +3,7 @@
 $ui-background: antiquewhite;
 $ui-border: orangered;
 $ui-font: #333333;
+$symbol-height: 24px;
 
 /* Symbols in-game */
 
@@ -13,63 +14,50 @@ $oxygen: #FF8C00;
 .symbol-water {
     color: $water;
 }
-
 .symbol-temperature {
     color: $temperature;
 }
-
 .symbol-oxygen {
     color: $oxygen;
 }
 
-$leaf: lawngreen;
-$leaf-bg: forestgreen;
+$leaf: forestgreen;
+$animals: darkolivegreen;
+$science: darkgoldenrod;
+$earth: royalblue;
+$star: #FFD700;
+$steel: #482613;
 .symbol-leaf {
     color: $leaf;
 }
-
-$animals: darkolivegreen;
-$animals-bg: lightseagreen;
 .symbol-animals {
     color: $animals;
 }
-
-$science: darkgoldenrod;
-$science-bg: whitesmoke;
 .symbol-science {
     color: $science;
 }
-
-$earth: mediumseagreen;
-$earth-bg: royalblue;
 .symbol-earth {
-    color: $earth-bg;
+    color: $earth;
 }
-
-$star: #FFD700;
-$star-bg: #484848;
 .symbol-star {
     color: $star;
 }
-
-$iron: #482613;
-$iron-bg: #7f4b23;
 .symbol-steel {
-    color: $iron;
+    color: $steel;
 }
 
 /* Resources icons */
 $res-cash: #FF8C00;
-$res-steel: $iron;
+$res-iron: $steel;
 $res-titan: $star;
-$res-green: $leaf;
-$res-energy: #c024fc;
+$res-green: forestgreen;
+$res-energy: #ff3fc8;
 $res-heat: $temperature;
 .symbol-cash {
     color: $res-cash;
 }
 .symbol-iron {
-    color: $res-steel;
+    color: $res-iron;
 }
 .symbol-titan {
     color: $res-titan;

@@ -44,18 +44,18 @@ export default class Player implements IPlayer {
             case "Credicor":
                 // "Cash" - declaration example
                 this.resources = new Resource(60, 0, 0, 0, 0, 0);
-                this.income = new Resource(2, 1, 1, 1, 1, 0);
+                this.income = new Resource(2, 1, 1, 1, 1, 1);
                 break;
             case "Mining Guild":
                 // "Iron"
                 this.resources = new Resource(30, 10, 5, 0, 5, 0);
-                this.income = new Resource(1, 2, 1, 1, 1, 0);
-                this.aquiredSymbols.push("iron");
+                this.income = new Resource(1, 2, 1, 1, 1, 1);
+                this.aquiredSymbols.push("steel");
                 break;
             case "Inventrix":
                 // "Science"
                 this.resources = new Resource(50, 0, 0, 0, 0, 0);
-                this.income = new Resource(2, 1, 1, 1, 1, 0);
+                this.income = new Resource(2, 1, 1, 1, 1, 1);
                 let b = new cardBehavior(new Resource(0, 2, 1, 4, 2, 0));
                 this.cards.push(new Card("Zasoby z Ziemi", Types.blue, 4, Symbols.earth, "Zabieracie zasoby z Ziemi: 2 stali, 1 tytanu, 4 zieleni i 2 energii", b));
                 this.aquiredSymbols.push("science");
@@ -88,7 +88,7 @@ export default class Player implements IPlayer {
                 break;
             case "TEST":
                 this.resources = new Resource(50, 0, 0, 0, 0, 0);
-                this.income = new Resource(2, 1, 1, 1, 1, 0);
+                this.income = new Resource(2, 1, 1, 1, 1, 1);
                 let testB1 = new cardBehavior(new Resource(0, 0, 0, 0, 11, 0)); // Dodawanie 11 energii
                 let testB2 = new cardBehavior(null, new Resource(0, 0, 0, 3, 0, 0)); // Dodawanie 3 produkcji zieleni
                 let testB3 = new cardBehavior(null, null, 2, 1); // 2 punkty WT i 1 punkty zwycięstwa
@@ -98,6 +98,16 @@ export default class Player implements IPlayer {
                 this.cards.push(new Card("Kwatery mieszkalne", Types.yellow, 4, Symbols.science, "+2 do współczynnika terraformacji, +1 punkt zwycięztwa", testB3, new Indicators(0, -26, 4)));
                 this.cards.push(new Card("Deszcz meteorów", Types.red, 4, Symbols.earth, "Temperatura +4 stopnie, Poziom tlenu +4%", testB4));
                 this.cards.push(new Card("Test card", Types.red, 1, Symbols.steel, "Nie rób mi krzywdy!", testB4));
+                this.cards.push(new Card("Test card", Types.red, 1, Symbols.steel, "Nie rób mi krzywdy!", testB4));
+                this.cards.push(new Card("Test card", Types.red, 1, Symbols.steel, "Nie rób mi krzywdy!", testB4));
+                this.cards.push(new Card("Test card", Types.red, 1, Symbols.steel, "Nie rób mi krzywdy!", testB4));
+                this.cards.push(new Card("Test card", Types.red, 1, Symbols.steel, "Nie rób mi krzywdy!", testB4));
+                this.cards.push(new Card("Test card", Types.red, 1, Symbols.steel, "Nie rób mi krzywdy!", testB4));
+                this.cards.push(new Card("Test card", Types.red, 1, Symbols.steel, "Nie rób mi krzywdy!", testB4));
+                this.cards.push(new Card("Test card", Types.red, 1, Symbols.steel, "Nie rób mi krzywdy!", testB4));
+                this.cards.push(new Card("Test card", Types.red, 1, Symbols.steel, "Nie rób mi krzywdy!", testB4));
+                this.cards.push(new Card("Test card", Types.red, 1, Symbols.steel, "Nie rób mi krzywdy!", testB4));
+
                 break;
         }
 

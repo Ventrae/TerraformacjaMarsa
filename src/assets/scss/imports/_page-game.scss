@@ -11,6 +11,9 @@
         justify-content: space-evenly;
         flex-wrap: wrap;
         padding: 10px 100px 20px;
+        @media screen and (max-width: 840px) {
+            padding: 10px 20px 20px;
+        }
         background: $ui-background;
         border-top: 4px solid $ui-border;
         margin: 0 !important;
@@ -29,6 +32,7 @@
 .card {
 
     border: 1px solid dimgray;
+    width: 18em;
     margin: 15px;
     cursor: pointer;
     z-index: 1;
@@ -128,48 +132,44 @@
 
     }
 
-    &--bg-yellow h5 {
-        background-image: linear-gradient(to bottom, rgba(247, 202, 24, 0.7), rgba(245, 215, 110, 0.7)),
-        url("/src/assets/img/metal.jpg");
+    &--bg-yellow {
+        .card-body {
+            @include steel-background(rgb(247, 202, 24), 0.6, 0.5);
+        }
+
+        h5 {
+            background-image: linear-gradient(to bottom, rgba(247, 202, 24, 0.7), rgba(245, 215, 110, 0.7)), url("/src/assets/img/metal.jpg");
+        }
     }
 
-    &--bg-red h5 {
-        background-image: linear-gradient(to bottom, rgba(242, 38, 19, 0.7), rgba(236, 100, 75, 0.7)),
-        url("/src/assets/img/metal.jpg");
+    &--bg-red {
+        .card-body {
+            @include steel-background(rgb(242, 38, 19), 0.6, 0.5);
+        }
+
+        h5 {
+            background-image: linear-gradient(to bottom, rgba(242, 38, 19, 0.7), rgba(236, 100, 75, 0.7)), url("/src/assets/img/metal.jpg");
+        }
     }
 
-    &--bg-blue h5 {
-        background-image: linear-gradient(to bottom, rgba(34, 167, 240, 0.7), rgba(37, 116, 169, 0.7)),
-        url("/src/assets/img/metal.jpg");
+    &--bg-blue {
+        .card-body {
+            @include steel-background(rgb(34, 167, 240), 0.6, 0.5);
+        }
+
+        h5 {
+            background-image: linear-gradient(to bottom, rgba(34, 167, 240, 0.7), rgba(37, 116, 169, 0.7)), url("/src/assets/img/metal.jpg");
+        }
     }
 
-    &--bg-green h5 {
-        background-image: linear-gradient(to bottom, rgba(38, 166, 91, 0.7), rgba(144, 198, 149, 0.7)),
-        url("/src/assets/img/metal.jpg");
-    }
-}
+    &--bg-green {
+        .card-body {
+            @include steel-background(rgb(38, 166, 91), 0.6, 0.5);
+        }
 
-.card--bg-red {
-    .card-body {
-        @include steel-background(rgb(242, 38, 19), 0.6, 0.5);
-    }
-}
-
-.card--bg-yellow {
-    .card-body {
-        @include steel-background(rgb(247, 202, 24), 0.6, 0.5);
-    }
-}
-
-.card--bg-green {
-    .card-body {
-        @include steel-background(rgb(38, 166, 91), 0.6, 0.5);
-    }
-}
-
-.card--bg-blue {
-    .card-body {
-        @include steel-background(rgb(34, 167, 240), 0.6, 0.5);
+        h5 {
+            background-image: linear-gradient(to bottom, rgba(38, 166, 91, 0.7), rgba(144, 198, 149, 0.7)), url("/src/assets/img/metal.jpg");
+        }
     }
 }
 
@@ -369,3 +369,202 @@
 
     }
 }
+
+.production-bold {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+        margin: 0 4px;
+        height: $symbol-height !important;
+    }
+}
+
+.operationRow {
+    display: flex;
+    justify-content: space-evenly;
+    background: $ui-background;
+    border-top: 4px solid $ui-border;
+
+    padding: 20px 0;
+
+    div {
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+        button {
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            font-size: $symbol-height+4px;
+            background-image: linear-gradient(to left bottom, #ffffff, #f5f5f5, #ebebeb, #e2e2e2, #d8d8d8, #d8d8d8, #d8d8d8, #d8d8d8, #e2e2e2, #ebebeb, #f5f5f5, #ffffff);
+            border-radius: 8px;
+            border: 2px solid #e2e2e2;
+            white-space: nowrap;
+
+            &:hover, &:focus {
+                border: 2px solid #c2c2c2;
+                @media screen and (min-width: 1300px) {
+                    font-size: $symbol-height+8px;
+                    padding: 16px;
+                }
+                transition-duration: .2s;
+            }
+        }
+    }
+}
+
+.resources {
+
+    padding: 0;
+    border-top: 4px solid $ui-border;
+
+    &--symbols {
+        display: flex;
+        background: antiquewhite;
+        padding: 0;
+        border-bottom: 4px solid $ui-border;
+        @media screen and (max-width: 575px) {
+            flex-wrap: wrap;
+        }
+
+        h5 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 200px;
+            padding: 10px 25px;
+            margin: 0;
+            background: wheat;
+            @media screen and (max-width: 575px) {
+                width: 100%;
+                height: 45px;
+            }
+        }
+
+        &-window {
+            display: flex;
+            overflow-x: auto;
+            background: white;
+
+            &-symbol {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                padding: 10px 20px;
+                font-size: 28px;
+                @media screen and (max-width: 575px) {
+                    padding: 10px 20px;
+                }
+                border-left: 1px solid $ui-border;
+                border-right: 1px solid $ui-border;
+
+                &:first-child {
+                    border-left: 2px solid $ui-border;
+                }
+
+                &:last-child {
+                    border-right: 2px solid $ui-border;
+                }
+            }
+
+            .science {
+                background-color: whitesmoke;
+            }
+
+            .earth {
+                background: mediumseagreen;
+            }
+
+            .animals {
+                background-color: lightseagreen;
+            }
+
+            .leaf {
+                background-color: palegreen;
+            }
+
+            .steel {
+                background-color: #7f4b23;
+            }
+
+            .star {
+                background-color: #484848;
+            }
+        }
+    }
+
+    &--resources {
+
+        background: lightcoral;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        background: #e2e2e2;
+
+        ul {
+            padding-inline-start: 0;
+            display: flex;
+            flex-flow: row wrap;
+            @media screen and (max-width: 1487px){
+                justify-content: space-evenly;
+            }
+            margin: 0;
+        }
+
+        .resource-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 200px;
+            height: 150px;
+            margin: 10px 20px !important;
+            font-size: 28px;
+            white-space: nowrap;
+            border: 2px solid $ui-border;
+
+            &:nth-child(1){
+                background: darkolivegreen;
+                border: 4px inset $res-cash;
+                color: antiquewhite;
+            }
+
+            &:nth-child(2){
+                background: #754320;
+                border: 4px inset $res-iron;
+                color: antiquewhite;
+            }
+
+            &:nth-child(3){
+                background: #5f5f5f;
+                border: 4px inset $res-titan;
+                color: antiquewhite;
+            }
+
+            &:nth-child(4){
+                background: palegreen;
+                border: 4px inset $res-green;
+
+            }
+
+            &:nth-child(5){
+                background: #be6e9f;
+                border: 4px inset $res-energy;
+                color: antiquewhite;
+            }
+
+            &:nth-child(6){
+                background: #cf000b;
+                border: 4px inset goldenrod;
+                color: goldenrod;
+            }
+
+        }
+    }
+}
+
+
+
