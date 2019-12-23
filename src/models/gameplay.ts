@@ -2,11 +2,9 @@ import Player from "./player";
 import Card from "./card";
 import Indicators from "./indicators";
 
-// import AllCards from './AllCards.json';
-
 export default class GamePlay {
 
-    cards: Card[] = [];
+    cards: Card[];
     players: Player[] = [];
     activePlayer: number;
     indicators: Indicators;

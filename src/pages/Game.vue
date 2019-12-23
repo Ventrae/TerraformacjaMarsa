@@ -5,7 +5,7 @@
             <terraformation-bar
                 :gameInstance="gameInstance"
                 :active="gameInstance.activePlayer"
-            ></terraformation-bar>
+            />
         </transition>
 
         <player-interface
@@ -23,14 +23,14 @@
 </template>
 
 <script>
-    import card from '../components/page-game/card.vue'
+    import card from '../components/page-game/card/card.vue'
     import TerraformationBar from "../components/page-game/terraformationBar";
     import PlayerInterface from "../components/page-game/playerInterface";
 
     import GamePlay from "../models/gameplay";
     import Player from "../models/player";
 
-    // import json from '../components/models/AllCards.json';
+    // import json from '../components/models/AllCards.ts';
 
     export var gameInstance = new GamePlay(
         [
@@ -66,7 +66,9 @@
         },
         methods: {
             nextTurn() {
-                if (this.gameInstance.activePlayer === (this.gameInstance.players.length - 1)) this.gameInstance.activePlayer = 0;
+                if (this.gameInstance.activePlayer === (this.gameInstance.players.length - 1)){
+                    this.gameInstance.activePlayer = 0;
+                }
                 else ++this.gameInstance.activePlayer;
             },
             checkEnd() {

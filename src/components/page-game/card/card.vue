@@ -5,9 +5,12 @@
 
         <div class="card--price">
             <card-cost>{{ this.card.price }}</card-cost>
-            <card-requirement :oxygen="this.card.requirements.oxygen" :temperature="this.card.requirements.temperature"
-                              :water="this.card.requirements.water"></card-requirement>
-            <card-symbol :symbol="this.card.symbol"></card-symbol>
+            <card-requirement
+                :oxygen="this.card.requirements.oxygen"
+                :temperature="this.card.requirements.temperature"
+                :water="this.card.requirements.water"
+            />
+            <card-symbol :symbol="this.card.symbol"/>
         </div>
 
         <div class="card-img-top">
@@ -27,7 +30,7 @@
     import CardSymbol from "./cardSymbol";
     import CardCost from "./cardCost";
     import CardRequirement from "./cardRequirement";
-    import {Card} from "../../models/card";
+    import {Card} from "../../../models/card";
 
     export default {
         name: "karta",

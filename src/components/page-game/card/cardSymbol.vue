@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import {renderedSymbol} from "../../mixins/renderedSymbol";
+    import {renderedSymbol} from "../../../mixins/renderedSymbol";
     export default {
         name: "symbol",
         props: {

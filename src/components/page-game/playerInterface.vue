@@ -6,9 +6,14 @@
             :name="player.name"
             v-if="logged !== true"
             @logged="logIn($event)"
-        ></login>
+        />
 
-        <template v-else>
+        <draw-cards
+            @drawed="drawCards($event)"
+            v-if="logged === true && drawed === false"
+        />
+
+        <template v-if="logged === true && drawed === true">
 
             <div class="col-12 mx-auto d-flex flex-column mb-4">
                 <h4>{{ player.name }} - {{ player.corporation }}</h4>
@@ -39,27 +44,27 @@
                         <li class="mx-auto resource-icons"
                             v-html="renderedSymbol('cash')+': '+player.resources.cash+' (+'+(player.points.terraformation+player.income.cash)+')'"
                             title="Gotówka"
-                        ></li>
+                        />
                         <li class="mx-auto resource-icons"
                             v-html="renderedSymbol('iron')+': '+player.resources.iron+' (+'+player.income.iron+')'"
                             title="Stal"
-                        ></li>
+                        />
                         <li class="mx-auto resource-icons"
                             v-html="renderedSymbol('titan')+': '+player.resources.titan+' (+'+player.income.titan+')'"
                             title="Tytan"
-                        ></li>
+                        />
                         <li class="mx-auto resource-icons"
                             v-html="renderedSymbol('green')+': '+player.resources.green+' (+'+player.income.green+')'"
                             title="Zieleń"
-                        ></li>
+                        />
                         <li class="mx-auto resource-icons"
                             v-html="renderedSymbol('energy')+': '+player.resources.energy+' (+'+player.income.energy+')'"
                             title="Energia"
-                        ></li>
+                        />
                         <li class="mx-auto resource-icons"
                             v-html="renderedSymbol('heat')+': '+player.resources.heat+' (+'+player.income.heat+')'"
                             title="Ciepło"
-                        ></li>
+                        />
                     </ul>
                 </div>
             </div>
@@ -123,7 +128,7 @@
                         v-for="(card, index) in player.cards"
                         :card="card"
                         @played="executeCard($event, index)"
-                    ></karta>
+                    />
                 </div>
             </div>
         </template>
@@ -132,15 +137,17 @@
 </template>
 
 <script>
-    import Karta from "./card";
+    import Karta from "./card/card";
     import login from "./login";
     import Indicators from "../../models/indicators";
     import Player from "../../models/player";
     import {renderedSymbol} from "../../mixins/renderedSymbol";
+    import DrawCards from "./drawCards";
 
     export default {
         name: "playerInterface",
         components: {
+            DrawCards,
             Karta,
             login
         },
@@ -266,11 +273,22 @@
             },
             logIn(arg) {
                 this.logged = arg;
+                this.drawCards();
+            },
+            drawCards($event){
+                if($event.cards !== undefined){
+                    $event.cards.forEach(e => {
+                        this.player.cards.push(e);
+                    });
+                    this.player.resources.cash -= $event.cost;
+                }
+                this.drawed = true;
             }
         },
         data() {
             return {
                 logged: false,
+                drawed: false,
                 actions: 0
             }
         },

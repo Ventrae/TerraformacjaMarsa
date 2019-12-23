@@ -1,8 +1,8 @@
 export default class Indicators {
 
-    water: number;
-    temperature: number;
-    oxygen: number;
+    water: number | null;
+    temperature: number | null;
+    oxygen: number | null;
 
     constructor(water: number, temperature: number, oxygen: number) {
         this.water = water;
