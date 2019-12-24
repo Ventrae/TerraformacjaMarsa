@@ -25,9 +25,9 @@ let DeszczMeteorow = new Card(
     Types.red, // type of card
     16, // price
     Symbols.steel, // symbol
-    'Deszcz meteorów zasypuje twoje farmy, redukując Ci produkcję zieleni o 2. Dostajesz jednak 8 jednostek stali i 2 jednostki tytanu. Temperatura rośnie o 4 stopnie', // description
+    'Deszcz meteorów zasypuje twoje farmy, redukując Ci produkcję zieleni o 2 ale przynosi 8 jednostek stali. Temperatura rośnie o 4 stopnie', // description
     new CardBehavior(
-        new Resource(0,8,2,0,0,0), // player resourcecs raise
+        new Resource(0,8,0,0,0,0), // player resourcecs raise
         new Resource(0,0,0,-2,0,0), // player income raise
         0, // terraformation points
         0, // victory points
@@ -59,7 +59,7 @@ let Plantacja = new Card(
     Types.green, // type of card
     8, // price
     Symbols.leaf, // symbol
-    'Nareszcie! Udało się wychodować rośliny na marsie! Co prawda w zamkniętym pomieszczeniu ale to zawsze jakiś początek! +2 produkcja zieleni, +1 współczynnik terraformacji', // description
+    'Nareszcie! Udało się wychodować rośliny na marsie! +2 produkcja zieleni, +1 współczynnik terraformacji', // description
     new CardBehavior(
         new Resource(0,0,0,0,0,0), // player resourcecs raise
         new Resource(0,0,0,2,0,0), // player income raise
@@ -86,7 +86,7 @@ let Farma = new Card(
         0, // temperature raise
         0, // oxygen raise
     ),
-    new Indicators(null, 0, 6) // requirements
+    new Indicators(0, 0, 6) // requirements
 );
 
 let ImportGazowCieplarnianych = new Card(
@@ -140,6 +140,74 @@ let SkafandryOchronne = new Card(
     )
 );
 
+let SztuczneJezioro = new Card(
+    "Sztuczne jezioro",
+    Types.green,
+    9,
+    Symbols.earth,
+    "+2 jednostki zieleni i stali, +1 poziom nawodnienia, +1 punkt terraformacji",
+    new CardBehavior(
+        new Resource(0,2,0,2,0,0), // player resourcecs raise
+        new Resource(0,0,0,0,0,0), // player income raise
+        1, // terraformation points
+        0, // victory points
+        1, // water raise
+        0, // temperature raise
+        0, // oxygen raise
+    )
+);
+
+let WodyGlebinowe = new Card(
+    "Wody głębinowe",
+    Types.red,
+    16,
+    Symbols.steel,
+    "+1 poziom nawodnienia, +2 stopnie na Marsie, +1 punkty zwycięztwa, +2 punkty terraformacji",
+    new CardBehavior(
+        new Resource(0,0,0,0,0,0), // player resourcecs raise
+        new Resource(0,0,0,0,0,0), // player income raise
+        2, // terraformation points
+        1, // victory points
+        1, // water raise
+        1, // temperature raise
+        0, // oxygen raise
+    )
+);
+let MiastoPodKopula = new Card(
+    "Miasto pod kopułą",
+    Types.blue,
+    12,
+    Symbols.star,
+    "Miasto pod kopułą zapewnia bezpieczne miejsce do rozwoju - +2 produkcja pieniędzy, +1 produkcja energii, +1 punkt zwycięstwa",
+    new CardBehavior(
+        new Resource(0,0,0,0,0,0), // player resourcecs raise
+        new Resource(2,0,0,0,1,0), // player income raise
+        0, // terraformation points
+        1, // victory points
+        0, // water raise
+        0, // temperature raise
+        0, // oxygen raise
+    )
+);
+
+let UniwersytetMarsjanski = new Card(
+    "Uniwersytet Marsjański",
+    Types.blue,
+    18,
+    Symbols.science,
+    "Uniwersytet Marsjański pozwala na prowadzenie badań naukowych na powierzchni planet. +3 punkty zwycięstwa",
+    new CardBehavior(
+        new Resource(0,0,0,0,0,0), // player resourcecs raise
+        new Resource(0,0,0,0,0,0), // player income raise
+        0, // terraformation points
+        3, // victory points
+        0, // water raise
+        0, // temperature raise
+        0, // oxygen raise
+    ),
+    new Indicators(0,2,6)
+);
+
 export const AllCards = {
     data() {
         return {
@@ -151,7 +219,11 @@ export const AllCards = {
                 Farma,
                 ImportGazowCieplarnianych,
                 ZasobyZZiemi,
-                SkafandryOchronne
+                SkafandryOchronne,
+                SztuczneJezioro,
+                WodyGlebinowe,
+                MiastoPodKopula,
+                UniwersytetMarsjanski
             ]
         }
     }

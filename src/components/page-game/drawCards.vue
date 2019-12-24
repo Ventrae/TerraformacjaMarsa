@@ -1,17 +1,17 @@
 <template>
-    <div class="col-12 mx-auto px-2 cardSectionWrapper">
-        <div class="col-12 px-5">
+    <div class="col-12 mx-auto container">
+        <div class="col-12">
             <h2>Dobierz karty:</h2>
             <h5>(koszt karty - 3 gotówki)</h5>
         </div>
-        <div class="col-12 justify-content-center row px-5 mx-auto">
+        <div class="col-12 justify-content-center row mx-auto">
             <div v-for="(c,i) of drawed">
                 <karta :card="c.card" @played="choose(c, i)" />
-                {{ c.chosen ? '[WYBRANO]' : '[NIE WYBRANO]'}}
+                <div class="text-center my-4" :class="{'text-success': c.chosen, 'text-danger': !c.chosen}">{{ c.chosen ? '[WYBRANO]' : '[NIE WYBRANO]'}}</div>
             </div>
         </div>
-        <div class="col-12 px-5 row justify-content-center">
-            <button class="mx-auto btn btn-primary" @click="draw()">
+        <div class="col-12 row justify-content-center">
+            <button class="mx-auto mb-5 mb-lg-0 btn btn-primary" @click="draw()">
                 Wybierz te karty - {{ ammount }} gotówki
             </button>
         </div>

@@ -18,8 +18,7 @@
             <div class="col-12 mx-auto d-flex flex-column mb-4">
                 <h4>{{ player.name }} - {{ player.corporation }}</h4>
                 <div>Gracz: {{ this.active }}</div>
-                <div>WT: {{ player.points.terraformation }}<span class="ml-1"
-                                                                 v-html="renderedSymbol('terraformation')"></span>,
+                <div>WT: {{ player.points.terraformation }}<span class="ml-1"v-html="renderedSymbol('terraformation')"/>,
                     punkty zwycięstwa: {{ player.points.victory }}
                 </div>
                 <button class="col-2" @click="finishTurn()">KONIEC TURY</button>

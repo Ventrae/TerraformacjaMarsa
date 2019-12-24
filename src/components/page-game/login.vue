@@ -30,10 +30,14 @@
             checklogin() {
                 if (this.cpassword === null) {
                     this.$emit('logged', true);
-                } else {
+                }
+                else {
                     if (this.cpassword === this.password) {
                         this.$emit('logged', true);
-                    } else this.error = true;
+                    }
+                    else {
+                        this.error = true;
+                    }
                 }
             }
         }

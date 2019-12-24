@@ -98,15 +98,7 @@ export default class Player implements IPlayer {
                 this.cards.push(new Card("Kwatery mieszkalne", Types.yellow, 4, Symbols.science, "+2 do współczynnika terraformacji, +1 punkt zwycięztwa", testB3, new Indicators(0, -26, 4)));
                 this.cards.push(new Card("Deszcz meteorów", Types.red, 4, Symbols.earth, "Temperatura +4 stopnie, Poziom tlenu +4%", testB4));
                 this.cards.push(new Card("Test card", Types.red, 1, Symbols.steel, "Nie rób mi krzywdy!", testB4));
-                this.cards.push(new Card("Test card", Types.red, 1, Symbols.steel, "Nie rób mi krzywdy!", testB4));
-                this.cards.push(new Card("Test card", Types.red, 1, Symbols.steel, "Nie rób mi krzywdy!", testB4));
-                this.cards.push(new Card("Test card", Types.red, 1, Symbols.steel, "Nie rób mi krzywdy!", testB4));
-                this.cards.push(new Card("Test card", Types.red, 1, Symbols.steel, "Nie rób mi krzywdy!", testB4));
-                this.cards.push(new Card("Test card", Types.red, 1, Symbols.steel, "Nie rób mi krzywdy!", testB4));
-                this.cards.push(new Card("Test card", Types.red, 1, Symbols.steel, "Nie rób mi krzywdy!", testB4));
-                this.cards.push(new Card("Test card", Types.red, 1, Symbols.steel, "Nie rób mi krzywdy!", testB4));
-                this.cards.push(new Card("Test card", Types.red, 1, Symbols.steel, "Nie rób mi krzywdy!", testB4));
-                this.cards.push(new Card("Test card", Types.red, 1, Symbols.steel, "Nie rób mi krzywdy!", testB4));
+
 
                 break;
         }
