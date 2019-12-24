@@ -72,7 +72,7 @@
                 else ++this.gameInstance.activePlayer;
             },
             checkEnd() {
-                if (this.gameInstance.indicators.temperature >= 16 && this.gameInstance.indicators.water >= 9 && this.gameInstance.indicators.oxygen >= 14) {
+                if (this.gameInstance.indicators.temperature >= 16 && this.gameInstance.indicators.water >= 8 && this.gameInstance.indicators.oxygen >= 14) {
                     this.finishGame();
                 }
             },

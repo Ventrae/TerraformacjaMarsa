@@ -296,5 +296,34 @@
 </script>
 
 <style scoped>
-
+    .resource-icons[title='Gotówka']{
+        background-image: linear-gradient(to bottom, rgba(0,40,0, 0.4), rgba(0,60,0, 0.3)),
+        url("/src/assets/img/cash.jpg");
+    }
+    .resource-icons[title='Stal']{
+        background-image: linear-gradient(to bottom, rgba(40,30,0, 0.7), rgba(40,30,0, 0.6)),
+        url("/src/assets/img/steel2.jpg");
+        background-size: cover;
+    }
+    .resource-icons[title='Tytan']{
+        background-image: linear-gradient(to bottom, rgba(50,50,50, 0.2), rgba(100,100,100, 0.2)),
+        url("/src/assets/img/stars.jpg");
+        background-position: left;
+    }
+    .resource-icons[title='Zieleń']{
+        background-image: linear-gradient(to bottom, rgba(50,70,50, 0.6), rgba(100,120,100, 0.6)),
+        url("/src/assets/img/forest.jpg");
+        color: palegoldenrod;
+        background-position: center;
+    }
+    .resource-icons[title='Energia']{
+        background-image: linear-gradient(to bottom, rgba(140,100,140, 0.3), rgba(140,100,140, 0.2)),
+        url("/src/assets/img/lightning.jpg");
+        background-position: center;
+    }
+    .resource-icons[title='Ciepło']{
+        background-image: linear-gradient(to bottom, rgba(60,40,10, 0.3), rgba(60,40,10, 0.4)),
+        url("/src/assets/img/fire.jpg");
+        background-position: center;
+    }
 </style>
