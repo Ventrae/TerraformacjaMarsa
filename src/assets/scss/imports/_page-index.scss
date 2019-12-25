@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: center;
     justify-content: space-evenly;
 
     input[type=text], input[type=password] {
@@ -10,14 +11,9 @@
         width: 15vw;
         outline: 0;
         padding: 5px 10px;
-        margin: 10px 20px;
         background: #f1f1f1;
         border: 0;
         transition-duration: .2s;
-
-        &:focus {
-            border-left: 4px solid #1c39a8;
-        }
 
     }
 
@@ -25,81 +21,21 @@
         width: 15vw;
         outline: 0;
         padding: 5px 10px;
-        margin: 10px 20px;
         background: #f1f1f1;
         border: 0;
 
-        &:focus {
-            border-left: 4px solid #1c39a8;
-        }
-
     }
-
-    .corporation-choice {
-
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        width: 650px;
-        border: 2px solid lime;
-
-        .prev-corpo, .next-corpo {
-            background: transparent;
-            width: 50px;
-            transition-duration: .2s;
-
-            &:hover {
-                color: cornflowerblue;
-            }
-        }
-
-        .prev-corpo {
-            order: 1;
-        }
-
-        .next-corpo {
-            order: 3;
-        }
-
-        .corporation-card {
-            order: 2;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            width: 400px;
-            height: 200px;
-            color: #f1f1f1;
-            @include steel-background(cornflowerblue, 0.5, 0.7);
-
-            h2 {
-                margin: 0 10px;
-                padding: 0 0 10px;
-                border-bottom: 1px solid #f1f1f1;
-            }
-
-            h5 {
-                padding: 10px 10px 0;
-            }
-
-            p {
-                padding: 0 10px;
-            }
-
-        }
-    }
-
 
     button[type=submit] {
         width: 10vw;
         align-self: center;
     }
 
-    border: 2px solid red;
+    border-bottom: 2px solid rgba(210,202,177,0.71);
 
 }
 
 .player-list {
-    border: 2px solid #1c39a8;
+
 
 }

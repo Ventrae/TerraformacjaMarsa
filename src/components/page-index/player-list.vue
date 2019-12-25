@@ -1,9 +1,10 @@
 <template>
-    <div class="player-list">
+    <div class="player-list container">
         <player-list-item
-            v-for="player of players"
+            v-for="(player, index) of players"
             :player="player"
-        ></player-list-item>
+            @deleted="deletePlayer(index)"
+        />
     </div>
 </template>
 
@@ -17,6 +18,11 @@
             players: {
                 type: Array,
                 required: true
+            }
+        },
+        methods: {
+            deletePlayer(arg){
+                this.$emit('deleted', arg);
             }
         }
     }

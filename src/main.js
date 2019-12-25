@@ -5,6 +5,9 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/scss/style.scss';
 import '@fortawesome/fontawesome-free/js/all.min.js';
+import Vuelidate from 'vuelidate';
+
+Vue.use(Vuelidate);
 
 new Vue({
     router,

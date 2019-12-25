@@ -9,9 +9,10 @@
           </button>
         </div>
         -->
-        <h2 class="mb-3">Rozpocznij rozgrywkę:</h2>
-        <player-list :players="players"></player-list>
-        <player-form @playerAdded="addPlayer($event)"></player-form>
+        <h2 class="pt-2 my-3">Rozpocznij rozgrywkę:</h2>
+        <player-form @playerAdded="addPlayer($event)"/>
+        <player-list :players="players" @deleted="deletePlayer($event)"/>
+
 
 
     </div>
@@ -32,6 +33,9 @@
         methods: {
             addPlayer(arg) {
                 this.players.push(arg);
+            },
+            deletePlayer($event){
+                this.players.splice($event, 1);
             }
         }
     }

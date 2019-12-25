@@ -1,18 +1,33 @@
 <template>
     <div class="corporation-choice">
         <div class="corporation-card">
-            <h2>Thorgate</h2>
-            <h5>Twój dostawca prądu</h5>
-            <p>Startujesz z 48 jednostkami gotówki i oraz produkcją energii na poziomie 2.</p>
+            <h2>{{ corporation }}</h2>
+            <h5>{{ corporationInfo(corporation).slogan }}</h5>
+            <p>{{ corporationInfo(corporation).info }}</p>
         </div>
-        <button type="button" class="prev-corpo"><i class="fas fa-arrow-left"></i></button>
-        <button type="button" class="next-corpo"><i class="fas fa-arrow-right"></i></button>
+        <button @click="deletePlayer()" class="btn btn-outline-danger">
+            <i class="fa fa-trash"/>
+        </button>
     </div>
 </template>
 
 <script>
+    import {corporationInfoMixin} from "../../mixins/corporationInfoMixin";
+
     export default {
-        name: "corporation-card"
+        name: "corporation-card",
+        props: {
+            corporation: {
+                type: String,
+                required: true
+            }
+        },
+        mixins: [ corporationInfoMixin ],
+        methods: {
+            deletePlayer(){
+                this.$emit('deleted');
+            }
+        }
     }
 </script>
 

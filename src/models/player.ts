@@ -75,7 +75,8 @@ export default class Player implements IPlayer {
                 break;
             case "Thorgate":
                 // Energy
-
+                this.resources = new Resource(48, 0, 0, 0, 0, 0);
+                this.income = new Resource(1, 1, 1, 1, 2, 1);
                 break;
             case "Aphrodite":
                 // Green

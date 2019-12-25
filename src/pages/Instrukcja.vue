@@ -4,7 +4,7 @@
         <div class="container py-4">
 
             <article>
-                <h3>Rozgrywka w Terraformacje Marsa</h3>
+                <h3>Rozgrywka w Terraformację Marsa</h3>
                 <p>adawd</p>
             </article>
 
