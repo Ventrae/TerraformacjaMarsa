@@ -17,13 +17,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="/#/">Start <span class="sr-only">(current)</span></a>
+                            <router-link class="nav-link" to="/">Start <span class="sr-only">(current)</span></router-link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/#/instrukcja">Instrukcja</a>
+                            <router-link class="nav-link" to="instrukcja">Instrukcja</router-link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/#/gra">Gra</a>
+                            <router-link class="nav-link" to="gra">Rozgrywka</router-link>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="https://github.com/Ventrae/TerraformacjaMarsa" target="_blank">GitHub</a>

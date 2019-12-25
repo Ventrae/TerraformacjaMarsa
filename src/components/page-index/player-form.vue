@@ -90,10 +90,7 @@
                 this.$emit('playerAdded', playerC);
             }
         },
-        mixins: [ corporationInfoMixin ],
-        updated() {
-            console.log(this.$v.player.corporation.mustBeValidCorpo);
-        }
+        mixins: [ corporationInfoMixin ]
     }
 </script>
 

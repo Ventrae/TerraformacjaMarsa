@@ -26,19 +26,7 @@
     import card from '../components/page-game/card/card.vue'
     import TerraformationBar from "../components/page-game/terraformationBar";
     import PlayerInterface from "../components/page-game/playerInterface";
-
-    import GamePlay from "../models/gameplay";
-    import Player from "../models/player";
-
-    // import json from '../components/models/AllCards.ts';
-
-    export var gameInstance = new GamePlay(
-        [
-            new Player("Inventrix", "Filip"),
-            new Player("TEST", "Paweł"),
-            new Player("Mining Guild", "Szymon", "abcde")
-        ]
-    );
+    import {gamesService} from "../mixins/game.service";
 
     export default {
         name: "Game",
@@ -47,21 +35,12 @@
             TerraformationBar,
             card: card
         },
-        data() {
-            return {
-                gameInstance: gameInstance
-            }
-        },
         computed: {
+            gameInstance(){
+                return this.$store.state.gameInstance;
+            },
             gameGoing() {
-                /*
-                if(this.GameInstance.indicators.water < 8 &&
-                   this.GameInstance.indicators.temperature < 16 &&
-                   this.GameInstance.indicators.oxygen < 16){
-                    return true;
-                }
-                else return true;*/
-                return true;
+                return this.$store.state.gameInstance !== null;
             }
         },
         methods: {
@@ -80,8 +59,13 @@
                 alert('koniec gry!');
             }
         },
-        mounted() {
-            console.log(this.gameInstance);
+        beforeRouteEnter(to, from, next){
+            next(vm => {
+                if(vm.$store.state.gameInstance === null){
+                    alert('Najpierw rozpocznij rozgrywkę!');
+                    next('/');
+                }
+            });
         }
     }
 </script>

@@ -3,11 +3,9 @@
         <router-view name="header"/>
 
         <div class="wrapper">
-            <keep-alive>
-                <transition mode="out-in" name="fade">
-                    <router-view name="default"/>
-                </transition>
-            </keep-alive>
+            <transition mode="out-in" name="fade">
+                <router-view name="default"/>
+            </transition>
         </div>
 
         <router-view name="footer"/>

@@ -40,6 +40,7 @@ export default new Router({
                 header: MainNavbar,
                 footer: MainFooter
             }
-        }
+        },
+        { path: '*', redirect: '/'}
     ]
 });

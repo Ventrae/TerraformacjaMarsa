@@ -1,10 +1,13 @@
 export const gamesService = {
     data(){
         return {
+            testtxt: 'abcdeee'
 
         }
     },
-    methods(){
-
+    watch: {
+        testtxt(){
+            console.log(this.testtxt);
+        }
     }
 };
