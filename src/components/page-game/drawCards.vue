@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="col-12 row justify-content-center">
-            <button class="mx-auto mb-5 mb-lg-0 btn btn-primary" @click="draw()">
+            <button class="m-0 mb-5 mx-lg-auto mb-lg-0 btn btn-primary" @click="draw()">
                 Wybierz te karty - {{ ammount }} gotówki
             </button>
         </div>

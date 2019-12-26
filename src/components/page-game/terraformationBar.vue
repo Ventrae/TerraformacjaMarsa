@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="terraformation-bar mb-5 row mx-auto">
+        <div class="terraformation-bar mb-3 row mx-auto">
             <div class="col-12 row terraformation-bar-players">
                 <div
                     class="terraformation-bar-players-cell col-6 col-md-3"

@@ -1,30 +1,26 @@
 <template>
-    <form @submit.prevent="addPlayer()" class="player-form container p-2">
+    <form @submit.prevent="addPlayer()" class="player-form container m-0 mx-auto p-2 row">
 
-        <div class="form-group">
-            <input type="text" placeholder="Nazwa gracza" v-model="player.name" class="form-control form-control-lg"/>
+        <div class="form-group col-12 col-lg-3 my-1">
+            <input type="text" placeholder="Nazwa gracza" v-model="player.name" class="w-100 form-control form-control-lg"/>
         </div>
 
-        <div class="form-group">
+        <div class="form-group col-12 col-lg-3 my-1">
             <input type="password" placeholder="Hasło (opcjonalnie)" v-model="player.password"
-                   class="form-control form-control-lg"/>
+                   class="w-100 form-control form-control-lg"/>
         </div>
 
-        <div class="form-group">
-            <select v-model="player.corporation" class="form-control form-control-lg">
+        <div class="form-group col-12 col-lg-3 my-1">
+            <select v-model="player.corporation" class="w-100 form-control form-control-lg">
                 <option value="Credicor">Credicor</option>
                 <option value="Mining Guild">Mining Guild</option>
                 <option value="Inventrix">Inventrix</option>
                 <option value="Ecoline">Ecoline</option>
-                <option value="Saturn Systems">Saturn Systems</option>
-                <option value="Teractor">Teractor</option>
                 <option value="Thorgate">Thorgate</option>
-                <option value="Aphrodite">Aphrodite</option>
-                <option value="United Nations Mars Initiative">United Nations Mars Initiative</option>
             </select>
         </div>
 
-        <button type="submit" class="btn btn-lg btn-outline-primary">Dodaj gracza</button>
+        <button type="submit" class="my-1 col-8 col-lg-3 btn btn-lg btn-outline-primary">Dodaj gracza</button>
 
         <div class="w-100 text-center pt-2 pb-1 error" v-if="!$v.player.name.required && submitted">
             Nazwa gracza jest wymagana
@@ -49,7 +45,7 @@
 
     function mustBeValidCorpo(value){
         let ifValid = false;
-        let validValues = ['Credicor', 'Thorgate'];
+        let validValues = ['Credicor', 'Mining Guild', 'Ecoline', 'Inventrix', 'Thorgate'];
         validValues.forEach(v => {
             if(value === v){
                 ifValid = true;
@@ -65,7 +61,7 @@
             return {
                 player: {
                     name: '',
-                    password: '',
+                    password: null,
                     corporation: 'Credicor',
                 },
                 submitted: false
@@ -80,6 +76,7 @@
         methods: {
             addPlayer() {
                 this.submitted = true;
+
                 // stop here if form is invalid
                 this.$v.$touch();
                 if (this.$v.$invalid) {

@@ -4,7 +4,16 @@
         <h2 class="pt-2 my-3">Rozpocznij rozgrywkę:</h2>
         <player-form @playerAdded="addPlayer($event)"/>
         <player-list :players="players" @deleted="deletePlayer($event)"/>
-        <button class="btn btn-primary btn-lg start-game" @click="beginGame()">Rozpocznij grę</button>
+
+        <transition name="fade-up">
+            <button
+                class="btn btn-primary btn-lg start-game"
+                @click="beginGame()"
+                v-if="players.length >= 2"
+            >
+                Rozpocznij grę
+            </button>
+        </transition>
 
     </div>
 </template>
@@ -12,7 +21,6 @@
 <script>
     import PlayerForm from "../components/page-index/player-form";
     import PlayerList from "../components/page-index/player-list";
-    import {gamesService} from "../mixins/game.service";
     import GamePlay from "../models/gameplay";
 
     export default {
@@ -23,7 +31,6 @@
                 players: []
             }
         },
-        mixins: [ gamesService ],
         methods: {
             addPlayer(arg) {
                 this.players.push(arg);
@@ -32,12 +39,14 @@
                 this.players.splice($event, 1);
             },
             beginGame(){
-
-                let gI = new GamePlay(this.players);
-                this.$store.state.gameInstance = gI;
-
-                this.$router.push('/gra');
-
+                if(this.players.length < 2){
+                    alert('Dodaj conajmniej dwóch graczy!');
+                }
+                else {
+                    let gI = new GamePlay(this.players);
+                    this.$store.state.gameInstance = gI;
+                    this.$router.push('/gra');
+                }
             }
         }
     }
@@ -49,5 +58,17 @@
         bottom: 64px;
         left: 50vw;
         transform: translateX(-50%);
+    }
+    .fade-up-enter {
+        
+    }
+    .fade-up-enter-active {
+
+    }
+    .fade-up-leave {
+
+    }
+    .fade-up-leave-active {
+
     }
 </style>

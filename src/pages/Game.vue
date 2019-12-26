@@ -18,7 +18,6 @@
             v-if="player === gameInstance.players[gameInstance.activePlayer]"
         >
         </player-interface>
-
     </div>
 </template>
 
@@ -26,7 +25,6 @@
     import card from '../components/page-game/card/card.vue'
     import TerraformationBar from "../components/page-game/terraformationBar";
     import PlayerInterface from "../components/page-game/playerInterface";
-    import {gamesService} from "../mixins/game.service";
 
     export default {
         name: "Game",
@@ -40,7 +38,13 @@
                 return this.$store.state.gameInstance;
             },
             gameGoing() {
-                return this.$store.state.gameInstance !== null;
+                if(this.$store.state.gameInstance !== null){
+                    if(this.gameInstance.indicators.temperature < 16 && this.gameInstance.indicators.water < 8 && this.gameInstance.indicators.oxygen < 14){
+                        return true;
+                    }
+                    else return false;
+                }
+                else return false;
             }
         },
         methods: {
@@ -56,6 +60,12 @@
                 }
             },
             finishGame() {
+                // TODO: wyliczanie zwycięzcy
+                let x = [];
+                this.$store.state.gameInstance.players.forEach(player => {
+                    x.push(player.name);
+                });
+
                 alert('koniec gry!');
             }
         },

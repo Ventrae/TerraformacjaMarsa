@@ -8,7 +8,6 @@ import '@fortawesome/fontawesome-free/js/all.min.js';
 import Vuelidate from 'vuelidate';
 import {store} from "./store/store";
 
-
 Vue.use(Vuelidate);
 
 new Vue({

@@ -1,9 +1,9 @@
 <template>
-    <form class="col-12 col-md-6 mx-auto alert login-card">
+    <form class="col-12 col-md-6 mx-auto alert login-card" @submit.prevent="checklogin()">
         <h2>Zaloguj się - <b>{{ this.name }}</b></h2>
         <h5 class="text-danger" v-if="this.error">Nieprawidłowe hasło!</h5>
-        <input type="text" placeholder="Wpisz hasło" v-model="password" v-if="this.cpassword !== null"/>
-        <button @click="checklogin()">Zaloguj</button>
+        <input type="text" placeholder="Wpisz hasło" v-model="password" v-if="this.cpassword"/>
+        <button type="submit">Zaloguj</button>
     </form>
 </template>
 

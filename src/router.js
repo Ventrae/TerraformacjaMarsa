@@ -7,6 +7,7 @@ import Game from './pages/Game.vue';
 
 import MainNavbar from './components/general/MainNavbar.vue';
 import MainFooter from './components/general/MainFooter.vue';
+import resources from './components/page-game/resources.vue';
 
 Vue.use(Router);
 
@@ -28,8 +29,7 @@ export default new Router({
             name: 'gra',
             components: {
                 default: Game,
-                header: MainNavbar,
-                footer: MainFooter
+                // header: MainNavbar
             }
         },
         {

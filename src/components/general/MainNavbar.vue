@@ -29,9 +29,9 @@
                             <a class="nav-link" href="https://github.com/Ventrae/TerraformacjaMarsa" target="_blank">GitHub</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" @click="toggleNavbar()">
+                            <button class="nav-link" type="button" @click="toggleNavbar()">
                                 <i class="fa fa-chevron-up" />
-                            </a>
+                            </button>
                         </li>
                     </ul>
                 </div>
@@ -72,7 +72,7 @@
         top: 0; right: 0;
         color: orangered;
         background: transparent;
-        padding: 5px 15px;
+        padding: 10px 20px;
         border: 0;
         z-index: 9999;
     }
@@ -90,5 +90,9 @@
         to {
             transform: translateY(0);
         }
+    }
+    button.nav-link {
+        background: transparent;
+        border: 0;
     }
 </style>
