@@ -6,17 +6,26 @@ Mój projekt "Terraformacja Marsa", jest implementacją gry planszowej o tym sam
 
 
 ### Technologie użyte w projekcie:
- - Vue.js (with VueCLI, Vue-Router)
+ - Vue.js (with VueCLI, Vue-Router and Vuex)
  - TypeScript
  - SCSS
  - Bootstrap 4
  - webpack
 
+ ### Następne do implementacji:
+ - zmiana alertów w snackbary lub modale (lub coś podobnego)
+ - migracja części logiki do Vuex'a
+
+### Rozgrywka:
+- gracz posiada 6 zasobów: pieniądze, żelazlo, tytan, zieleń, energia, ciepło
+- gracz posiada swój współczynnik terraformacji
+- ...
+
 ### Funkcjonalności:
  - możliwość prowadzenia rozgrywki w formacie hot seat
   **[Implemented]**
  - możliwość deklaracji ilości graczy i korporacji startowych (specjalizacji gracza)
-  **[Not implemented]**
+  **[Implemented]**
  - możliwość wykonywania akcji podstawowych w swojej turze (np. postawienine lasu)
   **[Implemented]**
  - możliwość zagrywania kart w swojej turze (akcje "customowe" np. +1 jednostka zieleni/turę & +1 poziom tlenu na planecie)
@@ -34,8 +43,11 @@ Mój projekt "Terraformacja Marsa", jest implementacją gry planszowej o tym sam
  - implementacja planszy
   **[Not implemented] [Planned for further development]**
 
-### Gameplay:
-- gracz posiada 6 zasobów: pieniądze, żelazlo, tytan, zieleń, energia, ciepło
-- gracz posiada swój współczynnik terraformacji
-- ...
+### Znane bugi:
+- kiedy gracz celowo obniża swój poziom przychodu zasobu jego przychód może stać się ujemy. Negatywny user input.
+- kiedy gra się kończy wyskakuje kilka errorów w konsoli javascript
 
+### Skrypty:
+- `npm install` - instaluje potrzebne biblioteki (paczki, dependencje)
+- `npm run dev` - otwiera projekt w wersji deweloperskiej (serwuje projekt na localhost:8080 z użyciem hotloader)
+- `npm run build` - buduje projekt w wersji produkcyjnej do folderu _dist/_, bundle'uje i minifikuje skrypty itp.
