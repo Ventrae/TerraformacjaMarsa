@@ -8,12 +8,12 @@ let EkspolracjaFobosa = new Card(
     Types.blue, // type of card
     12, // price
     Symbols.science, // symbol
-    'Eksplorujecie Fobosa i zdobywacie 2 jednostki tytanu', // description
+    'Eksplorujecie Fobosa i zdobywacie 2 jednostki tytanu i 1 punkt zwycięztwa', // description
     new CardBehavior(
-        new Resource(0,0,0,0,0,0), // player resourcecs raise
+        new Resource(0,0,2,0,0,0), // player resourcecs raise
         new Resource(0,0,0,0,0,0), // player income raise
-        1, // terraformation points
-        0, // victory points
+        0, // terraformation points
+        1, // victory points
         0, // water raise
         0, // temperature raise
         0, // oxygen raise
@@ -113,8 +113,8 @@ let ZasobyZZiemi = new Card(
     Symbols.earth,
     "Zabieracie zasoby z Ziemi: 2 stali, 1 tytanu, 4 zieleni i 2 energii",
     new CardBehavior(
-        new Resource(0,0,0,0,0,0), // player resourcecs raise
-        new Resource(0,2,1,4,2,0), // player income raise
+        new Resource(0,2,1,4,2,0), // player resourcecs raise
+        new Resource(0,0,0,0,0,0), // player income raise
         0, // terraformation points
         0, // victory points
         0, // water raise
@@ -162,11 +162,11 @@ let WodyGlebinowe = new Card(
     Types.red,
     16,
     Symbols.steel,
-    "+1 poziom nawodnienia, +2 stopnie na Marsie, +1 punkty zwycięztwa, +2 punkty terraformacji",
+    "+1 poziom nawodnienia, +2 stopnie na Marsie, +1 punkty zwycięztwa",
     new CardBehavior(
         new Resource(0,0,0,0,0,0), // player resourcecs raise
         new Resource(0,0,0,0,0,0), // player income raise
-        2, // terraformation points
+        0, // terraformation points
         1, // victory points
         1, // water raise
         1, // temperature raise

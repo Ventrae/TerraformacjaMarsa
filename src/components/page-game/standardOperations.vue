@@ -51,7 +51,7 @@
                         Nawodnij Marsa
                     </button>
                     <span class="ml-2">
-                        <b>Koszt: 6 </b><span v-html="renderedSymbol('cash')"/>, zwiększa ilość <span v-html="renderedSymbol('water')"/> na planecie o 1.
+                        <b>Koszt: 18 </b><span v-html="renderedSymbol('cash')"/>, zwiększa ilość <span v-html="renderedSymbol('water')"/> na planecie o 1.
                     </span>
                 </div>
             </div>

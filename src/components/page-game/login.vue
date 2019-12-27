@@ -20,7 +20,7 @@
                 required: true
             },
             color: {
-                type: String
+                type: Object
             }
         },
         data() {

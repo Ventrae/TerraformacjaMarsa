@@ -1,5 +1,5 @@
 <template>
-    <div class="page" v-if="gameGoing">
+    <div class="page">
 
         <transition name="slide-down" appear>
             <terraformation-bar
@@ -25,6 +25,7 @@
     import card from '../components/page-game/card/card.vue'
     import TerraformationBar from "../components/page-game/terraformationBar";
     import PlayerInterface from "../components/page-game/playerInterface";
+    import player from "../models/player";
 
     export default {
         name: "Game",
@@ -36,15 +37,6 @@
         computed: {
             gameInstance(){
                 return this.$store.state.gameInstance;
-            },
-            gameGoing() {
-                if(this.$store.state.gameInstance !== null){
-                    if(this.gameInstance.indicators.temperature < 16 && this.gameInstance.indicators.water < 8 && this.gameInstance.indicators.oxygen < 14){
-                        return true;
-                    }
-                    else return false;
-                }
-                else return false;
             }
         },
         methods: {
@@ -55,18 +47,59 @@
                 else ++this.gameInstance.activePlayer;
             },
             checkEnd() {
-                if (this.gameInstance.indicators.temperature >= 16 && this.gameInstance.indicators.water >= 8 && this.gameInstance.indicators.oxygen >= 14) {
+                let endGame = true;
+
+                if (this.gameInstance.indicators.temperature < 16){
+                    endGame = false;
+                }
+                if(this.gameInstance.indicators.water < 8){
+                    endGame = false;
+                }
+                if(this.gameInstance.indicators.oxygen < 14) {
+                    endGame = false;
+                }
+
+                if(endGame){
                     this.finishGame();
                 }
             },
             finishGame() {
-                // TODO: wyliczanie zwycięzcy
-                let x = [];
+                let x, winners = [];
+                let winner = {
+                    name: '',
+                    score: 0
+                };
+                console.group('Wyniki');
                 this.$store.state.gameInstance.players.forEach(player => {
-                    x.push(player.name);
+                    x = {
+                        name: player.name,
+                        score: player.points.terraformation + player.points.victory
+                    };
+                    console.log(x.name + ': '+x.score+'pkt');
+                    if(x.score > winner.score) {
+                        winner = x;
+                        winners = [winner];
+                    }
+                    else if(x.score === winner.score) {
+                        winners.push(x);
+                    }
                 });
+                console.groupEnd();
+                if(winners.length === 1){
+                    alert('Koniec gry! Wygrywa '+winner.name+'!');
+                    this.$store.state.gameInstance = null;
+                    this.$router.push('/');
+                }
+                else {
+                    winner = '';
+                    x = winners.forEach(e => {
+                        winner = winner + ', ' + e.name;
+                    });
+                    alert('Koniec gry! Wygrywają '+winner+' remisem!');
+                    this.$store.state.gameInstance = null;
+                    this.$router.push('/');
+                }
 
-                alert('koniec gry!');
             }
         },
         beforeRouteEnter(to, from, next){

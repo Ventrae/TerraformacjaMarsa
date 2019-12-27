@@ -170,7 +170,7 @@
                     case 5:
                         // Zwiększenie temperatury (za 8 energii)
                         if (this.player.resources.heat >= 8) {
-                            this.indicators.temperature += 1;
+                            this.indicators.temperature += 2;
                             this.player.resources.heat -= 8;
 
                             this.player.points.terraformation++;
