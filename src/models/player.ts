@@ -1,11 +1,10 @@
 import Resource from "./resources";
-import Card, {Symbols, Types} from "./card";
+import Card from "./card";
 import Points from "./points";
-import cardBehavior from "./cardBehavior";
-import Indicators from "./indicators";
 import {AllCards} from "../mixins/AllCards";
 
 interface IPlayer {
+
     name: String,
     password: String | null
     corporation: String
@@ -73,7 +72,6 @@ export default class Player implements IPlayer {
                 this.income = new Resource(1, 1, 1, 1, 3, 1);
                 break;
         }
-
 
     }
 

@@ -1,7 +1,8 @@
 <template>
     <div class="page">
 
-        <h2 class="pt-2 my-3">Rozpocznij rozgrywkę:</h2>
+        <h2 class="pt-2 my-3 text-center">Rozpocznij rozgrywkę - dodaj graczy:</h2>
+
         <player-form @playerAdded="addPlayer($event)"/>
         <player-list :players="players" @deleted="deletePlayer($event)"/>
 
@@ -33,7 +34,8 @@
         },
         methods: {
             addPlayer(arg) {
-                this.players.push(arg);
+                if(this.players.length < 4) this.players.push(arg);
+                else alert('Nie możesz dodać więcej niż czterech graczy!');
             },
             deletePlayer($event){
                 this.players.splice($event, 1);
@@ -53,22 +55,28 @@
 </script>
 
 <style scoped>
+    .page {
+        margin-top: 64px;
+    }
     .start-game {
         position: fixed;
-        bottom: 64px;
+        bottom: 50px;
         left: 50vw;
         transform: translateX(-50%);
     }
-    .fade-up-enter {
-        
-    }
     .fade-up-enter-active {
-
-    }
-    .fade-up-leave {
-
+        animation: slide-in .3s ease-in forwards;
     }
     .fade-up-leave-active {
+        animation: slide-in .3s ease-in reverse;
+    }
 
+    @keyframes slide-in {
+        from {
+            transform: translateX(-50%) translateY(50px);
+        }
+        to {
+            transform: translateX(-50%) translateY(0);
+        }
     }
 </style>

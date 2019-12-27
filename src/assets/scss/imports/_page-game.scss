@@ -6,24 +6,17 @@
     .cardSection {
         box-sizing: border-box;
         width: 100%;
-        display: flex;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
         padding: 10px 100px 20px;
         @media screen and (max-width: 840px) {
             padding: 10px 20px 20px;
         }
-        background: $ui-background;
-        border-top: 4px solid $ui-border;
         margin: 0 !important;
         min-height: 500px;
 
         h2 {
             width: 100%;
-            height: 50px;
             padding-bottom: 10px;
             margin: 0;
-            border-bottom: 2px solid $ui-border;
         }
     }
 }
@@ -40,7 +33,7 @@
 
     border: 1px solid dimgray;
     width: 18em;
-    margin: 15px;
+    margin: 5px;
     cursor: pointer;
     z-index: 1;
     transition-duration: .15s;
@@ -190,39 +183,88 @@
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.4);
 
     &-players {
-
-        box-sizing: content-box;
+        display: flex;
+        flex-wrap: wrap;
 
         &-cell {
 
+            box-sizing: border-box !important;
             display: flex;
             justify-content: center;
             align-items: center;
             background-color: $ui-background;
             padding: 5px 0;
-            border-left: 4px solid $ui-border;
-
-            border-right: 4px solid $ui-border;
             font-size: 20px;
 
+            border-left: 4px solid $ui-border;
+            border-right: 4px solid $ui-border;
+            border-bottom: 3px solid $ui-border;
 
-        }
+            &:nth-child(1).two-players {
+                border-left: 0;
+                border-bottom: 0;
+            }
+            &:nth-child(2).two-players {
+                border-left: 0;
+                border-bottom: 0;
+                @media screen and (max-width: 768px) {
+                    border-right: 0;
+                }
+            }
 
-        &-cell:first-child {
-            border-left: 0;
-        }
+            &:nth-child(1).three-players {
+                border-left: 0;
+                border-bottom: 0;
+                @media screen and (max-width: 768px) {
+                    border-right: 3px solid $ui-border;
+                    border-bottom: 3px solid $ui-border;
+                }
+            }
+            &:nth-child(2).three-players {
+                border-left: 0;
+                border-bottom: 0;
+                @media screen and (max-width: 768px) {
+                    border-right: 0;
+                    border-bottom: 3px solid $ui-border;
+                }
+            }
+            &:nth-child(3).three-players {
+                border-left: 0;
+                border-bottom: 0;
+            }
 
-        &-cell:nth-child(4) {
-            border-right: 0;
-        }
+            &:nth-child(1).four-players {
+                border-left: 0;
+                border-bottom: 0;
+                @media screen and (max-width: 768px) {
+                    border-right: 3px solid $ui-border;
+                    border-bottom: 3px solid $ui-border;
+                }
+            }
+            &:nth-child(2).four-players {
+                border-left: 0;
+                border-bottom: 0;
+                @media screen and (max-width: 768px) {
+                    border-right: 0;
+                    border-bottom: 3px solid $ui-border;
+                }
+            }
+            &:nth-child(3).four-players {
+                border-left: 0;
+                border-bottom: 0;
+            }
+            &:nth-child(4).four-players {
+                border-left: 0;
+                border-right: 0;
+                border-bottom: 0;
+            }
 
-        &-cell:not(:last-child) {
-            border-right: 0;
         }
 
         .active-turn {
             color: $ui-border;
         }
+
     }
 
     &-generals {
@@ -265,69 +307,24 @@
             color: $oxygen;
         }
     }
-}
 
-@media screen and (max-width: 767px) {
-    .terraformation-bar {
-
+    @media screen and (max-width: 350px) {
         &-players {
-
-            &-cell {
-                border-bottom: 3px solid $ui-border;
-            }
-
-            &-cell:last-child {
-                box-sizing: content-box;
-                border-bottom: 0;
-            }
-
-            &-cell:nth-child(3) {
-                border-left: 0;
-            }
-        }
-
-        &-generals {
-
-            justify-content: center;
-
-            &-cell:first-child {
-                border-left: 0;
-            }
-
-            &-cell:last-child {
-                border-right: 0;
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 350px) {
-    .terraformation-bar {
-
-        &-players {
-
             width: 100%;
             height: auto;
-
             &-cell {
-                width: 100%;
                 font-size: 16px;
-
                 .fa-sun {
                     font-size: 16px !important;
                 }
             }
         }
-
         &-generals {
-
             width: 100%;
-
             &-cell {
                 width: 100%;
                 font-size: 18px;
             }
-
             &-cell:last-child {
                 border-bottom: 0;
             }
@@ -389,36 +386,13 @@
 }
 
 .operationRow {
-    display: flex;
-    justify-content: space-evenly;
-    background: $ui-background;
-    border-top: 4px solid $ui-border;
 
-    padding: 20px 0;
+    border-top: 2px solid #dedede;
+    border-bottom: 2px solid #dedede;
 
     div {
         margin-top: 10px;
         margin-bottom: 10px;
-
-        button {
-            width: 100%;
-            height: 100%;
-            padding: 20px;
-            font-size: $symbol-height+4px;
-            background-image: linear-gradient(to left bottom, #ffffff, #f5f5f5, #ebebeb, #e2e2e2, #d8d8d8, #d8d8d8, #d8d8d8, #d8d8d8, #e2e2e2, #ebebeb, #f5f5f5, #ffffff);
-            border-radius: 8px;
-            border: 2px solid #e2e2e2;
-            white-space: nowrap;
-
-            &:hover, &:focus {
-                border: 2px solid #c2c2c2;
-                @media screen and (min-width: 1300px) {
-                    font-size: $symbol-height+8px;
-                    padding: 16px;
-                }
-                transition-duration: .2s;
-            }
-        }
     }
 }
 
@@ -461,18 +435,23 @@
                 height: 100%;
                 padding: 10px 20px;
                 font-size: 22px;
-                @media screen and (max-width: 575px) {
-                    padding: 10px 20px;
-                }
-                border-left: 1px solid #dedede;
-                border-right: 1px solid #dedede;
 
-                &:first-child {
-                    border-left: 2px solid #dedede;
+                @media screen and (max-width: 559px){
+                    width: 30vw !important;
+                    margin-left: auto;
+                    margin-right: auto;
                 }
 
-                &:last-child {
-                    border-right: 2px solid #dedede;
+                @media screen and (min-width: 559px) {
+                    border-left: 1px solid #dedede;
+                    border-right: 1px solid #dedede;
+                    &:first-child {
+                        border-left: 2px solid #dedede;
+                    }
+
+                    &:last-child {
+                        border-right: 2px solid #dedede;
+                    }
                 }
             }
 
@@ -517,18 +496,34 @@ aside.resources {
             border: 2px solid $ui-border;
             border-bottom: 0;
             padding: 15px 30px;
+            @media screen and (max-width: 991px){
+                padding: 10px 20px;
+            }
             color: #fafafa;
             border-right: 0;
             &:first-child {
                 border-top-left-radius: 6px;
+                @media screen and (max-width: 991px){
+                    border-left: 0;
+                }
+                color: #222222 !important;
+                font-size: 20px !important;
+                font-weight: bold;
+                padding: 10px 45px !important;
             }
             &:last-child{
                 border-top-right-radius: 6px;
                 border-right: 2px solid $ui-border;
+                @media screen and (max-width: 991px){
+                    border-right: 0;
+                }
             }
-            &:hover {
+            &:not(:first-child):hover {
                 background: $ui-background !important;
                 color: $ui-border !important;
+            }
+            @media screen and (max-width: 991px){
+                border-radius: 0 !important;
             }
         }
         .resource-icons[title='Gotówka']{
@@ -554,14 +549,32 @@ aside.resources {
         .resource-icons[title='Energia']{
             background-image: linear-gradient(to bottom, rgba(140,100,140, 0.3), rgba(140,100,140, 0.2)),
             url("/src/assets/img/lightning.jpg");
-            background-position: center;
         }
         .resource-icons[title='Ciepło']{
             background-image: linear-gradient(to bottom, rgba(60,40,10, 0.3), rgba(60,40,10, 0.4)),
             url("/src/assets/img/fire.jpg");
             background-position: center;
         }
+        /*.resource-icons {
+            background: $ui-background !important;
+            color: $ui-border !important;
+        }*/
     }
 }
 
 
+.corpo-credicor {
+    background: antiquewhite;
+}
+.corpo-mining {
+    background: darkgray;
+}
+.corpo-ecoline {
+    background: #d9ffd9;
+}
+.corpo-inventrix {
+    background: powderblue;
+}
+.corpo-thorgate {
+    background: plum;
+}

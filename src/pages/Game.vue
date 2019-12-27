@@ -93,4 +93,13 @@
             transform: translateY(0);
         }
     }
+    .page {
+        margin-top: 0;
+    }
+
+    @media screen and (max-width: 991px) {
+        .page {
+            margin-bottom: 110px;
+        }
+    }
 </style>

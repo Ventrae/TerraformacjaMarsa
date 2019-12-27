@@ -1,6 +1,6 @@
 <template>
-    <form class="col-12 col-md-6 mx-auto alert login-card" @submit.prevent="checklogin()">
-        <h2>Zaloguj się - <b>{{ this.name }}</b></h2>
+    <form class="col-11 col-md-6 mx-auto alert login-card" @submit.prevent="checklogin()">
+        <h2>Zaloguj się - <b :style="color">{{ this.name }}</b></h2>
         <h5 class="text-danger" v-if="this.error">Nieprawidłowe hasło!</h5>
         <input type="text" placeholder="Wpisz hasło" v-model="password" v-if="this.cpassword"/>
         <button type="submit">Zaloguj</button>
@@ -18,6 +18,9 @@
             name: {
                 type: String,
                 required: true
+            },
+            color: {
+                type: String
             }
         },
         data() {

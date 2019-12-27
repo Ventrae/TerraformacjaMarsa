@@ -1,6 +1,6 @@
 <template>
     <div class="col-12 mx-auto container">
-        <div class="col-12">
+        <div class="col-12 d-flex justify-content-between align-items-center flex-column flex-lg-row">
             <h2>Dobierz karty:</h2>
             <h5>(koszt karty - 3 gotówki)</h5>
         </div>
@@ -10,8 +10,8 @@
                 <div class="text-center my-4" :class="{'text-success': c.chosen, 'text-danger': !c.chosen}">{{ c.chosen ? '[WYBRANO]' : '[NIE WYBRANO]'}}</div>
             </div>
         </div>
-        <div class="col-12 row justify-content-center">
-            <button class="m-0 mb-5 mx-lg-auto mb-lg-0 btn btn-primary" @click="draw()">
+        <div class="col-10 mx-auto row justify-content-center">
+            <button class="mb-5 mx-lg-auto mb-lg-0 btn btn-primary" @click="draw()">
                 Wybierz te karty - {{ ammount }} gotówki
             </button>
         </div>

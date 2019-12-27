@@ -2,6 +2,7 @@
     <aside class="fixed-bottom navbar-dark resources">
         <div class="container">
             <ul>
+                <li class="resource-icons bg-white">Zasoby:</li>
                 <li class="resource-icons"
                     v-html="renderedSymbol('cash')+': '+player.resources.cash+' (+'+(player.points.terraformation+player.income.cash)+')'"
                     title="Gotówka"
@@ -48,5 +49,10 @@
 </script>
 
 <style scoped>
-
+    .resource-icons:first-child {
+        color: #222222 !important;
+        font-size: 22px !important;
+        font-weight: bold;
+        padding: 10px 50px !important;
+    }
 </style>

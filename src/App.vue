@@ -1,13 +1,13 @@
 <template>
     <div class="container-fluid" id="app">
         <router-view name="header"/>
-
         <div class="wrapper">
             <transition mode="out-in" name="fade">
-                <router-view name="default"/>
+                <keep-alive>
+                    <router-view name="default"/>
+                </keep-alive>
             </transition>
         </div>
-
         <router-view name="footer"/>
     </div>
 </template>

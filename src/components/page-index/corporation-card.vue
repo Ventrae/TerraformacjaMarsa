@@ -1,13 +1,9 @@
 <template>
-    <div class="corporation-choice">
-        <div class="corporation-card">
-            <h2>{{ corporation }}</h2>
+    <div class="corporation-choice col-5 row">
+        <div class="corporation-card col-12">
             <h5>{{ corporationInfo(corporation).slogan }}</h5>
-            <p>{{ corporationInfo(corporation).info }}</p>
+            <p class="text-justify">{{ corporationInfo(corporation).info }}</p>
         </div>
-        <button @click="deletePlayer()" class="btn btn-outline-danger">
-            <i class="fa fa-trash"/>
-        </button>
     </div>
 </template>
 
@@ -22,12 +18,7 @@
                 required: true
             }
         },
-        mixins: [ corporationInfoMixin ],
-        methods: {
-            deletePlayer(){
-                this.$emit('deleted');
-            }
-        }
+        mixins: [ corporationInfoMixin ]
     }
 </script>
 

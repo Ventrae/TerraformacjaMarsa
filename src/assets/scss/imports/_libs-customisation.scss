@@ -30,5 +30,5 @@ $hamburger-layer-height: 2.5px;
 $hamburger-layer-spacing: 5px;
 
 .page {
-    min-height: 100vh;
+    min-height: calc(100vh-64px);
 }

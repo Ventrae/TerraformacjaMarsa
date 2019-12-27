@@ -1,11 +1,16 @@
 <template>
     <div>
         <div class="terraformation-bar mb-3 row mx-auto">
-            <div class="col-12 row terraformation-bar-players">
+            <div class="col-12 row px-0 terraformation-bar-players mx-auto">
                 <div
                     class="terraformation-bar-players-cell col-6 col-md-3"
                     v-for="player in gameInstance.players"
-                    :class="{'active-turn':player === gameInstance.players[active]}"
+                    :class="{
+                        'active-turn':player === gameInstance.players[active],
+                        'two-players': gameInstance.players.length === 2,
+                        'three-players': gameInstance.players.length === 3,
+                        'four-players': gameInstance.players.length === 4,
+                    }"
                 >
                     [{{ player.name }}] = {{ player.points.terraformation }}
                     <div class="ml-1" v-html="renderedSymbol('terraformation')" title="Współczynnik terraformacji"></div>

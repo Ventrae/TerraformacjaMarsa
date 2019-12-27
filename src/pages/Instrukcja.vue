@@ -51,5 +51,7 @@
 </script>
 
 <style scoped>
-
+    .page {
+        margin-top: 64px;
+    }
 </style>

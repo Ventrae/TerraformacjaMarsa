@@ -37,5 +37,74 @@
 
 .player-list {
 
+    .player-list--item {
+        h3{
+            text-shadow: 1px 1px black;
+        }
+        &:nth-child(1) {
+            h3{
+                color: red;
+            }
+        }
+        &:nth-child(2) {
+            h3{
+                color: blue;
+            }
+        }
+        &:nth-child(3) {
+            h3{
+                color: turquoise;
+            }
+        }
+        &:nth-child(4) {
+            h3{
+                color: purple;
+            }
+        }
+    }
+
+    .corpo-credicor {
+        border: 4px solid goldenrod;
+        background: lightyellow;
+        color: darkgoldenrod !important;
+        border-radius: 8px;
+        -webkit-box-shadow: 2px 2px 15px 2px rgba(231,166,26,1);
+        -moz-box-shadow: 2px 2px 15px 2px rgba(231,166,26,1);
+        box-shadow: 2px 2px 15px 2px rgba(231,166,26,1);
+    }
+    .corpo-mining {
+        border: 5px outset #333333;
+        background: darkgray;
+        color: #7f4b23 !important;
+        -webkit-box-shadow: 2px 2px 15px 2px rgba(56,26,26,1);
+        -moz-box-shadow: 2px 2px 15px 2px rgba(56,26,26,1);
+        box-shadow: 2px 2px 15px 2px rgba(56,26,26,1);
+    }
+    .corpo-ecoline {
+        border: 4px solid forestgreen;
+        background: whitesmoke;
+        color: forestgreen !important;
+        -webkit-box-shadow: 2px 2px 15px 2px rgba(40,148,33,1);
+        -moz-box-shadow: 2px 2px 15px 2px rgba(40,148,33,1);
+        box-shadow: 2px 2px 15px 2px rgba(40,148,33,1);
+        border-top-left-radius: 52px;
+        border-bottom-right-radius: 52px;
+    }
+    .corpo-inventrix {
+        border: 4px solid royalblue;
+        background: lightgray;
+        color: steelblue !important;
+        -webkit-box-shadow: 2px 2px 15px 2px rgba(60,56,133,1);
+        -moz-box-shadow: 2px 2px 15px 2px rgba(60,56,133,1);
+        box-shadow: 2px 2px 15px 2px rgba(60,56,133,1);
+    }
+    .corpo-thorgate {
+        border: 4px solid rebeccapurple;
+        background: darkgray;
+        color: rebeccapurple !important;
+        -webkit-box-shadow: 2px 2px 15px 2px rgba(60,56,133,1);
+        -moz-box-shadow: 2px 2px 15px 2px rgba(60,56,133,1);
+        box-shadow: 2px 2px 15px 2px rgba(60,56,133,1);
+    }
 
 }
