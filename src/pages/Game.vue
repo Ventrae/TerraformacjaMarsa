@@ -18,6 +18,7 @@
             v-if="player === gameInstance.players[gameInstance.activePlayer]"
         >
         </player-interface>
+
     </div>
 </template>
 
@@ -25,7 +26,6 @@
     import card from '../components/page-game/card/card.vue'
     import TerraformationBar from "../components/page-game/terraformationBar";
     import PlayerInterface from "../components/page-game/playerInterface";
-    import player from "../models/player";
 
     export default {
         name: "Game",
@@ -41,65 +41,17 @@
         },
         methods: {
             nextTurn() {
-                if (this.gameInstance.activePlayer === (this.gameInstance.players.length - 1)){
-                    this.gameInstance.activePlayer = 0;
-                }
-                else ++this.gameInstance.activePlayer;
+                this.gameInstance.nextTurn();
             },
             checkEnd() {
-                let endGame = true;
-
-                if (this.gameInstance.indicators.temperature < 16){
-                    endGame = false;
-                }
-                if(this.gameInstance.indicators.water < 8){
-                    endGame = false;
-                }
-                if(this.gameInstance.indicators.oxygen < 14) {
-                    endGame = false;
-                }
-
-                if(endGame){
-                    this.finishGame();
+                if(this.gameInstance.checkEnd()){
+                    this.gameInstance.finishGame();
+                    this.$router.push('/');
+                    this.$store.state.gameInstance = null;
                 }
             },
             finishGame() {
-                let x, winners = [];
-                let winner = {
-                    name: '',
-                    score: 0
-                };
-                console.group('Wyniki');
-                this.$store.state.gameInstance.players.forEach(player => {
-                    x = {
-                        name: player.name,
-                        score: player.points.terraformation + player.points.victory
-                    };
-                    console.log(x.name + ': '+x.score+'pkt');
-                    if(x.score > winner.score) {
-                        winner = x;
-                        winners = [winner];
-                    }
-                    else if(x.score === winner.score) {
-                        winners.push(x);
-                    }
-                });
-                console.groupEnd();
-                if(winners.length === 1){
-                    alert('Koniec gry! Wygrywa '+winner.name+'!');
-                    this.$store.state.gameInstance = null;
-                    this.$router.push('/');
-                }
-                else {
-                    winner = '';
-                    x = winners.forEach(e => {
-                        winner = winner + ', ' + e.name;
-                    });
-                    alert('Koniec gry! Wygrywają '+winner+' remisem!');
-                    this.$store.state.gameInstance = null;
-                    this.$router.push('/');
-                }
-
+                this.gameInstance.finishGame();
             }
         },
         beforeRouteEnter(to, from, next){

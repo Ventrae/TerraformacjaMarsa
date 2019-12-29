@@ -45,8 +45,7 @@
                     alert('Dodaj conajmniej dwóch graczy!');
                 }
                 else {
-                    let gI = new GamePlay(this.players);
-                    this.$store.state.gameInstance = gI;
+                    this.$store.state.gameInstance = new GamePlay(this.players);
                     this.$router.push('/gra');
                 }
             }

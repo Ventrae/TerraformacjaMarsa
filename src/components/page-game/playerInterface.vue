@@ -33,7 +33,6 @@
 
             <standard-operations @operated="standardOperation($event)" />
 
-
             <cards-section :cards="player.cards" @cardPlayed="executeCard($event.event, $event.index)"/>
 
         </template>
@@ -44,7 +43,6 @@
 </template>
 
 <script>
-    import Karta from "./card/card";
     import login from "./login";
     import Indicators from "../../models/indicators";
     import Player from "../../models/player";
@@ -97,91 +95,14 @@
         },
         methods: {
             standardOperation(operation) {
-                switch (operation) {
-                    case 0:
-                        // Założenie miasta
-                        if (this.player.resources.cash >= 25) {
-                            this.player.income.cash += 1;
-                            this.player.resources.cash -= 25;
-
-                            this.actions++;
-                            if (this.actions === 2) {
-                                this.finishTurn();
-                            }
-                        } else alert('Nie można założyć miasta, musisz posiadać 25 jednostek gotówki');
-                        break;
-                    case 1:
-                        // Założenie lasu
-                        if (this.player.resources.green >= 8) {
-                            this.indicators.oxygen += 1;
-                            this.player.resources.green -= 8;
-
-                            this.player.points.terraformation++;
-                            this.$emit('terraformed');
-
-                            this.actions++;
-                            if (this.actions === 2) {
-                                this.finishTurn();
-                            }
-                        } else alert('Nie można założyć lasu, musisz posiadać 8 jednostek zieleni');
-                        break;
-                    case 2:
-                        // Założenie oceanu
-                        if (this.player.resources.cash >= 18) {
-                            this.indicators.water += 1;
-                            this.player.resources.cash -= 18;
-
-                            this.player.points.terraformation++;
-                            this.$emit('terraformed');
-
-                            this.actions++;
-                            if (this.actions === 2) {
-                                this.finishTurn();
-                            }
-                        } else alert('Nie można założyć oceanu, musisz posiadać 18 jednostek gotówki');
-                        break;
-                    case 3:
-                        // Podniesienie temperatury (za gotówkę)
-                        if (this.player.resources.cash >= 14) {
-                            this.indicators.temperature += 2;
-                            this.player.resources.cash -= 14;
-
-                            this.player.points.terraformation++;
-                            this.$emit('terraformed');
-
-                            this.actions++;
-                            if (this.actions === 2) {
-                                this.finishTurn();
-                            }
-                        } else alert('Nie można podnieść temperatury, musisz posiadać 14 jednostek gotówki');
-                        break;
-                    case 4:
-                        // Zwiększenie produkcji energii
-                        if (this.player.resources.cash >= 11) {
-                            this.player.income.energy += 1;
-                            this.player.resources.cash -= 11;
-
-                            this.actions++;
-                            if (this.actions === 2) {
-                                this.finishTurn();
-                            }
-                        } else alert('Nie można zwiększyć produkcji energii, musisz posiadać 11 jednostek gotówki');
-                        break;
-                    case 5:
-                        // Zwiększenie temperatury (za 8 energii)
-                        if (this.player.resources.heat >= 8) {
-                            this.indicators.temperature += 2;
-                            this.player.resources.heat -= 8;
-
-                            this.player.points.terraformation++;
-                            this.$emit('terraformed');
-
-                            this.actions++;
-                            if (this.actions === 2) {
-                                this.finishTurn();
-                            }
-                        } else alert('Nie można podnieść temperatury, musisz posiadać 8 jednostek ciepła');
-                        break;
+                if(this.player.standardOperation(operation)){
+                    if(operation === 1 || operation === 2 || operation === 3 || operation === 5){
+                        this.$emit('terraformed');
+                    }
+                    this.actions++;
+                    if (this.actions === 2) {
+                        this.finishTurn();
+                    }
                 }
             },
             executeCard(arg, index) {
@@ -200,17 +121,14 @@
             },
             finishTurn() {
                 this.player.productionPhase();
-                this.$emit('finishedTurn', this.active);
+                this.$emit('finishedTurn');
             },
             logIn(arg) {
                 this.logged = arg;
             },
             drawCards($event){
                 if($event.cards !== undefined){
-                    $event.cards.forEach(e => {
-                        this.player.cards.push(e);
-                    });
-                    this.player.resources.cash -= $event.cost;
+                    this.player.drawCards($event.cards, $event.cost);
                 }
                 this.drawed = true;
                 window.scrollTo(0,0);

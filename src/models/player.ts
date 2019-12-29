@@ -2,6 +2,7 @@ import Resource from "./resources";
 import Card from "./card";
 import Points from "./points";
 import {AllCards} from "../mixins/AllCards";
+import Indicators from "./indicators";
 
 interface IPlayer {
 
@@ -75,6 +76,97 @@ export default class Player implements IPlayer {
 
     }
 
+    standardOperation(operation: number, indicators: Indicators):boolean{
+        let result = false;
+        switch (operation) {
+            case 0:
+                // Założenie miasta
+                if (this.resources.cash >= 25) {
+                    this.income.cash += 1;
+                    this.resources.cash -= 25;
+                    result = true;
+                }
+                else
+                {
+                    alert('Nie można założyć miasta, musisz posiadać 25 jednostek gotówki');
+                    result = false;
+                }
+                break;
+            case 1:
+                // Założenie lasu
+                if (this.resources.green >= 8) {
+                    indicators.oxygen += 1;
+                    this.resources.green -= 8;
+                    this.points.terraformation++;
+                    result = true;
+                }
+                else {
+                    alert('Nie można założyć lasu, musisz posiadać 8 jednostek zieleni');
+                    result = false;
+                }
+                break;
+            case 2:
+                // Założenie oceanu
+                if (this.resources.cash >= 18) {
+                    indicators.water += 1;
+                    this.resources.cash -= 18;
+                    this.points.terraformation++;
+                    result = true;
+                }
+                else {
+                    alert('Nie można założyć oceanu, musisz posiadać 18 jednostek gotówki');
+                    result = false;
+                }
+                break;
+            case 3:
+                // Podniesienie temperatury (za gotówkę)
+                if (this.resources.cash >= 14) {
+                    indicators.temperature += 2;
+                    this.resources.cash -= 14;
+                    this.points.terraformation++;
+                    result = true;
+                }
+                else {
+                    alert('Nie można podnieść temperatury, musisz posiadać 14 jednostek gotówki');
+                    result = false;
+                }
+                break;
+            case 4:
+                // Zwiększenie produkcji energii
+                if (this.resources.cash >= 11) {
+                    this.income.energy += 1;
+                    this.resources.cash -= 11;
+                    result = true;
+                }
+                else {
+                    alert('Nie można zwiększyć produkcji energii, musisz posiadać 11 jednostek gotówki');
+                    result = false;
+                }
+                break;
+            case 5:
+                // Zwiększenie temperatury (za 8 energii)
+                if (this.resources.heat >= 8) {
+                    indicators.temperature += 2;
+                    this.resources.heat -= 8;
+                    this.points.terraformation++;
+                    result = true;
+                }
+                else {
+                    alert('Nie można podnieść temperatury, musisz posiadać 8 jednostek ciepła');
+                    result = false;
+                }
+                break;
+        }
+        return result;
+    }
+
+    drawCards(cards: Array<Card>, cost: number){
+        cards.forEach(e => {
+            this.cards.push(e);
+        });
+        this.resources.cash -= cost;
+    }
+
     productionPhase(): void {
 
         this.resources.cash += this.points.terraformation;
@@ -92,5 +184,4 @@ export default class Player implements IPlayer {
         this.resources.heat += this.income.heat;
 
     }
-
 }

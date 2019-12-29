@@ -27,7 +27,9 @@ interface ICard {
     text: String;
     behavior: cardBehavior;
 
-    playCard(indicators: Indicators, player: Player): boolean
+    checkConditions(indicators: Indicators): boolean;
+    checkCash(number: number): boolean;
+    playCard(indicators: Indicators, player: Player): boolean;
 
 }
 
@@ -51,50 +53,81 @@ export default class Card implements ICard {
         else this.requirements = new Indicators(0, -30, 0);
     }
 
+    checkConditions(indicators: Indicators):boolean{
+        let x = true;
+
+        if (indicators.water < this.requirements.water) {
+            x = false;
+        }
+        if(indicators.temperature < this.requirements.temperature) {
+            x = false;
+        }
+        if(indicators.oxygen < this.requirements.oxygen) {
+            x = false;
+        }
+
+        if(x){
+            return true;
+        }
+        else {
+            alert("Wymagania niespełnione!");
+            return false;
+        }
+
+    }
+
+    checkCash(cash: number):boolean{
+        if (cash >= this.price) {
+            return true;
+        }
+        else {
+            alert("Brak gotówki!");
+            return false;
+        }
+    }
+
+    executeBehavior(indicators: Indicators, player: Player){
+        player.resources.cash += this.behavior.resources.cash;
+        player.resources.iron += this.behavior.resources.iron;
+        player.resources.titan += this.behavior.resources.titan;
+        player.resources.green += this.behavior.resources.green;
+        player.resources.energy += this.behavior.resources.energy;
+        player.resources.heat += this.behavior.resources.heat;
+
+        player.income.cash += this.behavior.income.cash;
+        player.income.iron += this.behavior.income.iron;
+        player.income.titan += this.behavior.income.titan;
+        player.income.green += this.behavior.income.green;
+        player.income.energy += this.behavior.income.energy;
+        player.income.heat += this.behavior.income.heat;
+
+        indicators.water += this.behavior.indicators.water;
+        // temperatura na marsie skacze co dwa stopnie
+        indicators.temperature += (2 * this.behavior.indicators.temperature);
+        indicators.oxygen += this.behavior.indicators.oxygen;
+
+        player.points.terraformation += this.behavior.points.terraformation;
+        // Za podnoszenie poziomu nawodnienia, temperatury i tlenu, podnosimy też WT gracza
+        player.points.terraformation += this.behavior.indicators.water;
+        player.points.terraformation += this.behavior.indicators.temperature;
+        player.points.terraformation += this.behavior.indicators.oxygen;
+        player.points.victory += this.behavior.points.victory;
+    }
+
     playCard(indicators: Indicators, player: Player): boolean {
-        if (indicators.water >= this.requirements.water && indicators.temperature >= this.requirements.temperature && indicators.oxygen >= this.requirements.oxygen) {
 
-            if (player.resources.cash >= this.price) {
+        if(this.checkConditions(indicators)) {
+            if(this.checkCash(player.resources.cash)) {
 
-                player.resources.cash += this.behavior.resources.cash;
-                player.resources.iron += this.behavior.resources.iron;
-                player.resources.titan += this.behavior.resources.titan;
-                player.resources.green += this.behavior.resources.green;
-                player.resources.energy += this.behavior.resources.energy;
-                player.resources.heat += this.behavior.resources.heat;
-
-                player.income.cash += this.behavior.income.cash;
-                player.income.iron += this.behavior.income.iron;
-                player.income.titan += this.behavior.income.titan;
-                player.income.green += this.behavior.income.green;
-                player.income.energy += this.behavior.income.energy;
-                player.income.heat += this.behavior.income.heat;
-
-                indicators.water += this.behavior.indicators.water;
-                indicators.temperature += (2 * this.behavior.indicators.temperature);
-                indicators.oxygen += this.behavior.indicators.oxygen;
-
-                player.points.terraformation += this.behavior.points.terraformation;
-                // Za podnoszenie poziomu nawodnienia, temperatury i tlenu, podnosimy też WT gracza
-                player.points.terraformation += this.behavior.indicators.water;
-                player.points.terraformation += this.behavior.indicators.temperature;
-                player.points.terraformation += this.behavior.indicators.oxygen;
-                player.points.victory += this.behavior.points.victory;
+                this.executeBehavior(indicators, player);
 
                 player.aquiredSymbols.push(this.symbol);
                 player.resources.cash -= this.price;
 
                 return true;
-
-            } else {
-                alert("Brak gotówki!");
-                return false;
             }
-
-        } else {
-            alert("Wymagania niespełnione!");
-            return false;
         }
+
     }
 
 }

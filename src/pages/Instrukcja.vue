@@ -30,6 +30,14 @@
             </article>
 
             <article>
+                <h3>Akcje gracza:</h3>
+                <section>
+                    <h5>Karty akcji:</h5>
+                    <p>Każda karta ma swoje działanie, </p>
+                </section>
+            </article>
+
+            <article>
                 <h3>Koniec gry</h3>
                 <p>
                     Gra kończy się w momencie osiągnięcia stanu terraformacji planety pozwalającego życie - 8 oceanów, 16 stopni celsjusza i 14% tlenu.
