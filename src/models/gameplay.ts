@@ -6,7 +6,7 @@ export default class GamePlay {
 
     cards: Card[];
     players: Player[] = [];
-    activePlayer: number;
+    activePlayer: number = 0;
     indicators: Indicators;
 
     constructor(players: Array<Player>){
